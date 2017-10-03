@@ -2,6 +2,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <unistd.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *dst, size_t len);
@@ -32,5 +33,10 @@ int	ft_isascii(int chr);
 int	ft_isprint(int chr);
 int	ft_toupper(int chr);
 int	ft_tolower(int chr);
+
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+void	ft_putendl(char const *s);
+void	ft_putnbr(int n);
 
 #endif
