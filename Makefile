@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/10/04 19:33:15 by xperrin          ###   ########.fr        #
+#    Updated: 2017/10/04 23:34:13 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,11 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME:.a=.so)
+
+so:
+	$(CC) $(CFLAGS) -c -fpic $(SRC) -I $(INCLUDE)
+	$(CC) -shared -Wl,-soname,libft.so -o libft.so $(OBJ)
 
 re: fclean all
 
