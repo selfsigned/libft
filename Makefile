@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/10/05 21:07:51 by xperrin          ###   ########.fr        #
+#    Updated: 2017/10/05 23:19:50 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra # -Werror
 INCLUDE = include/
 SRC = 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_memchr.c ft_memcmp.c \
-	ft_strlen.c \
+	ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_isprint.c ft_toupper.c ft_tolower.c \
 	ft_memalloc.c \
@@ -44,4 +44,4 @@ so:
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean so re
