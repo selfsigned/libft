@@ -6,18 +6,20 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2017/10/04 20:12:14 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/10/05 19:48:41 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
 
+/* part 1 */
 void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *dst, size_t len);
+void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t len);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t len);
 void	*ft_memmove(void *dst, const void *src, size_t len);
@@ -45,7 +47,8 @@ int		ft_isascii(int chr);
 int		ft_isprint(int chr);
 int		ft_toupper(int chr);
 int		ft_tolower(int chr);
-
+/* part 2 */
+void	*ft_memalloc(size_t size);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 void	ft_putendl(char const *s);
