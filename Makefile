@@ -6,17 +6,17 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/10/05 23:19:50 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/05 22:39:20 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra # -Werror
-INCLUDE = include/
 SRC = 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_memchr.c ft_memcmp.c \
 	ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
+	ft_strcat.c ft_strncat.c \
 	ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_isprint.c ft_toupper.c ft_tolower.c \
 	ft_memalloc.c \
@@ -28,7 +28,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -I $(INCLUDE) -c $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
@@ -39,7 +39,7 @@ fclean: clean
 	rm -f $(NAME) $(NAME:.a=.so)
 
 so:
-	$(CC) $(CFLAGS) -c -fpic $(SRC) -I $(INCLUDE)
+	$(CC) $(CFLAGS) -c -fpic $(SRC)
 	$(CC) -shared -Wl,-soname,libft.so -o libft.so $(OBJ)
 
 re: fclean all
