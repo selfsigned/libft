@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/05 22:39:20 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/11 14:30:37 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ fclean: clean
 
 so:
 	$(CC) $(CFLAGS) -c -fpic $(SRC)
-	$(CC) -shared -Wl,-soname,libft.so -o libft.so $(OBJ)
+	$(CC) -shared -Wl,-install_name,libft.so -o libft.so $(OBJ)
 
 re: fclean all
 
