@@ -6,13 +6,13 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 19:43:02 by xperrin           #+#    #+#             */
-/*   Updated: 2017/10/04 19:43:03 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/11 13:03:58 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int chr)
 {
 	if (0 <= chr && chr <= 127)
-		return(1);
+		return (1);
 	return (0);
 }

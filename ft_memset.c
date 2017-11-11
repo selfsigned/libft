@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 00:37:23 by xperrin           #+#    #+#             */
-/*   Updated: 2017/10/05 00:46:57 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/11 13:04:11 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ void	*ft_memset(void *b, int c, size_t len)
 		((char*)b)[i] = c;
 	return (b);
 }
-

@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 19:37:42 by xperrin           #+#    #+#             */
-/*   Updated: 2017/10/04 20:06:19 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/11 13:03:45 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_atoi(const char *str)
 {
 	int		i;
-	int 	r;
-	char 	s;
+	int		r;
+	char	s;
 
 	i = 0;
 	r = 0;
