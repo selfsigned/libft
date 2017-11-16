@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/16 14:37:43 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/16 14:49:15 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_strcmp.c ft_strncmp.c \
 	ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_isprint.c ft_toupper.c ft_tolower.c \
-	ft_memalloc.c ft_memdel.c ft_strnew.c \
+	ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c \
 	ft_itoa.c \
 	ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
