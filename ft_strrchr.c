@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:58:54 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/17 18:47:26 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/17 19:51:14 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
+	const	char	*tmp;
+
+	tmp = s;
+	s = s + ft_strlen(s);
 	while (*s != c)
 	{
-		if (!(*s))
+		if (*s == *tmp)
 			return (NULL);
-		s++;
+		s--;
 	}
 	return ((char*)s);
 }

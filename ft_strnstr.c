@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 18:22:38 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/17 02:38:40 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/17 19:51:41 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if (*haystack == *needle
 				&& !(ft_memcmp(haystack, needle, needle_len)))
-				return ((char*)haystack);
+			return ((char*)haystack);
 		haystack++;
 	}
 	return (NULL);
