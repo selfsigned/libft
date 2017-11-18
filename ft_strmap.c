@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 19:19:59 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/16 19:26:48 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/18 01:20:08 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*str;
+	unsigned int	i;
+	char			*str;
 
-	/* if (!(str = ft_memalloc(ft_strlen(s)))) */
-	/* 	return (NULL); */
+	i = -1;
+	if (!(str = ft_strdup((s))))
+		return (NULL);
 	str = ft_strdup(s);
-	while (*str)
-	{
-		*str = f(*str);
-		str++;
-	}
+	while (s[++i])
+		*str = f(s[i]);
+	str[i] = '\0';
 	return (str);
 }
