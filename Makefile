@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/17 21:04:50 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/19 18:37:32 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME): $(OBJ)
 
 $(SONAME): CFLAGS += -fPIC
 $(SONAME): $(OBJ)
-	 $(CC) -shared -o $(SONAME) $(OBJ)
+	@$(CC) -shared -o $(SONAME) $(OBJ)
 
 so: $(SONAME)
 

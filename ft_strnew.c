@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 13:51:25 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/16 14:43:24 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/19 19:01:49 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_strnew(size_t size)
 {
-	return (ft_memalloc(size));
+	return ((char*)ft_memalloc(size + 1));
 }

@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 19:36:38 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/16 14:36:37 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/19 18:35:55 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memalloc(size_t size)
 {
-	char	*ptr;
+	void	*ptr;
 
-	if (!(ptr = (char*)malloc(size)))
+	if (!(ptr = malloc(size)))
 		return (NULL);
 	ft_bzero(ptr, size);
 	return (ptr);
