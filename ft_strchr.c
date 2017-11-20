@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:58:54 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/17 18:47:26 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/20 21:08:45 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s != c)
-	{
-		if (!(*s))
+		if (!(*s++))
 			return (NULL);
-		s++;
-	}
 	return ((char*)s);
 }

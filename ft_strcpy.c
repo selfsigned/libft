@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 22:03:32 by xperrin           #+#    #+#             */
-/*   Updated: 2017/10/05 22:08:02 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/20 21:46:59 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	char	*tmp;
 
-	i = -1;
-	while (src[++i])
-		dst[i] = src[i];
-	dst[i] = '\0';
+	tmp = dst;
+	while (*src)
+		*tmp++ = *src++;
+	*tmp = '\0';
 	return (dst);
 }
