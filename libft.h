@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/21 14:22:26 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/21 15:16:25 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s);
 char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
