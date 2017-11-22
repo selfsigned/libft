@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:30:29 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/15 14:40:28 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/22 16:08:38 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static	char	*magic(int n, int len, int is_neg)
 {
 	char *dst;
 
-	if (!(dst = (char*)malloc(len)))
+	if (!(dst = ft_strnew(len)))
 		return (NULL);
 	dst[len] = '\0';
 	while (len != -1)
@@ -45,6 +45,8 @@ char			*ft_itoa(int n)
 	int		d;
 	int		is_neg;
 
+	if (n == MINIMUM_INT)
+		return (ft_strdup(MINIMUM_INT_STR));
 	is_neg = 0;
 	if (n < 0)
 	{

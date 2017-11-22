@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/21 15:16:25 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/22 16:15:09 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+# define MAXIMUM_INT 2147483647
+# define MINIMUM_INT -2147483648
+# define MINIMUM_INT_STR "-2147483648"
 
 /*
 ** part 1
@@ -66,6 +70,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
+char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
@@ -75,5 +80,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+/*
+** Bonus functions
+*/
+int		ft_cntword(char const *s, char c);
 
 #endif
