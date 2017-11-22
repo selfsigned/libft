@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/22 16:15:09 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/22 18:59:07 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,9 @@ void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 /*
-** Bonus functions
+** My functions
 */
 int		ft_cntword(char const *s, char c);
+size_t	ft_strrlen(char const *s, char c);
 
 #endif

@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 10:15:21 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/22 21:43:24 by xperrin          ###   ########.fr       */
+/*   Created: 2017/11/22 18:59:51 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/22 21:35:31 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_strsplit(char const *s, char c)
+size_t	ft_strrlen(const char *s, char c)
 {
-	int		wi;
-	int		wc;
-	char	**dst;
+	const	char	*tmp;
 
-	wc = ft_cntword(s, c);
-	if (!(dst = (char**)ft_memalloc(sizeof(char*) * (wc + 1))))
-		return (NULL);
-	wi = -1;
-	while (++wi < wc)
-	{
-		while (*s == c)
-			s++;
-		dst[wi] = ft_strsub(s, 0, ft_strrlen(s, c));
-		s += ft_strrlen(s, c);
-	}
-	dst[wi] = 0;
-	return (dst);
+	tmp = s;
+	while (*tmp && *tmp != c)
+		tmp++;
+	return (tmp - s);
 }
