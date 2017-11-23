@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 19:37:42 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/23 10:43:42 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/23 12:31:16 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (*str - '0');
 		str++;
 	}
-	if (!(s == '-' && r == (long)MAXIMUM_INT + 1) && r > MAXIMUM_INT)
-		return (-1);
 	if (s == '-')
 		return (-r);
 	return (r);
