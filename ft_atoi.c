@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 19:37:42 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/11 13:03:45 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/23 10:43:42 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		r;
-	char	s;
+	long long int		r;
+	char				s;
 
-	i = 0;
 	r = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		s = str[i];
-		i++;
+		s = *str;
+		str++;
 	}
-	while (ft_isdigit(str[i]))
+	while (ft_isdigit(*str))
 	{
-		r *= 10;
-		r += str[i] - 48;
-		i++;
+		r = r * 10 + (*str - '0');
+		str++;
 	}
+	if (!(s == '-' && r == (long)MAXIMUM_INT + 1) && r > MAXIMUM_INT)
+		return (-1);
 	if (s == '-')
 		return (-r);
 	return (r);
