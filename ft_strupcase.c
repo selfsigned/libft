@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 20:05:37 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/23 14:57:36 by xperrin          ###   ########.fr       */
+/*   Created: 2017/11/23 15:08:27 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/23 15:27:53 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int chr)
+char	*ft_strupcase(char *s)
 {
-	return (ft_islower(chr) ? chr - 32 : chr);
+	char *tmp;
+
+	tmp = s;
+	while (*s)
+	{
+		if (ft_islower(*s))
+			*s = ft_toupper(*s);
+		s++;
+	}
+	return (tmp);
 }

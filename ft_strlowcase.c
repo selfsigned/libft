@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 20:05:37 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/23 14:57:36 by xperrin          ###   ########.fr       */
+/*   Created: 2017/11/23 15:11:08 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/23 15:26:38 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int chr)
+char	*ft_strlowcase(char *s)
 {
-	return (ft_islower(chr) ? chr - 32 : chr);
+	char *tmp;
+
+	tmp = s;
+	while (*s)
+	{
+		if (ft_isupper(*s))
+			*s = ft_tolower(*s);
+		s++;
+	}
+	return (tmp);
 }

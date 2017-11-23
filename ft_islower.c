@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 20:05:37 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/23 14:57:36 by xperrin          ###   ########.fr       */
+/*   Created: 2017/11/23 14:44:04 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/23 14:47:44 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_toupper(int chr)
+int	ft_islower(int chr)
 {
-	return (ft_islower(chr) ? chr - 32 : chr);
+	return ((chr >= 'a' && chr <= 'z') ? 1 : 0);
 }
