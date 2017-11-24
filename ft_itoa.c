@@ -6,21 +6,12 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:30:29 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/22 16:08:38 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/24 17:32:07 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		count_digit(int n)
-{
-	int i;
-
-	i = 0;
-	while (n /= 10)
-		i++;
-	return (i);
-}
 
 static	char	*magic(int n, int len, int is_neg)
 {
@@ -28,7 +19,6 @@ static	char	*magic(int n, int len, int is_neg)
 
 	if (!(dst = ft_strnew(len)))
 		return (NULL);
-	dst[len] = '\0';
 	while (len != -1)
 	{
 		dst[len] = (n % 10 + '0');
@@ -53,6 +43,6 @@ char			*ft_itoa(int n)
 		n *= -1;
 		is_neg = 1;
 	}
-	d = (is_neg) ? count_digit(n) + 1 : count_digit(n);
+	d = (is_neg) ? ft_baselen(n, 10) + 1 : ft_baselen(n, 10);
 	return (magic(n, d, is_neg));
 }

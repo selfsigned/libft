@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/23 15:14:50 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/24 20:38:10 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ FT_42 = ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 	ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 FT_CUSTOM = ft_islower.c ft_isupper.c ft_strupcase.c ft_strlowcase.c \
-	ft_cntword.c ft_strrlen.c
+	ft_cntword.c ft_strrlen.c ft_strndup.c \
+	ft_baselen.c ft_pow.c
 SRC = $(FT_LIBC) $(FT_42) $(FT_CUSTOM)
 OBJ = $(SRC:.c=.o)
 

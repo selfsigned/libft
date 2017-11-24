@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cntword.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 16:11:01 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/24 22:19:35 by xperrin          ###   ########.fr       */
+/*   Created: 2017/11/24 20:38:43 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/24 20:46:40 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_cntword(const char *s, char c)
+char	*ft_strndup(char const *s, size_t n)
 {
-	int res;
-
-	if (!*s || !c)
-		return ((!c && *s) ? 1 : 0);
-	res = (*s == c) ? 0 : 1;
-	while (*(s + 1))
-	{
-		if (*s == c && *(s + 1) != c)
-			res += 1;
-		s++;
-	}
-	return (res);
+	return (ft_strsub(s, 0, n));
 }
