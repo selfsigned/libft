@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 10:15:21 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/23 12:10:55 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/24 22:40:25 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char		**ft_strsplit(char const *s, char c)
 	{
 		while (*s == c)
 			s++;
-		dst[wi] = ft_strsub(s, 0, ft_strrlen(s, c));
+		dst[wi] = ft_strndup(s, ft_strrlen(s, c));
 		s += ft_strrlen(s, c);
 	}
 	dst[wi] = 0;
