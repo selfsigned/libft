@@ -5,21 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 17:30:42 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/24 17:37:58 by xperrin          ###   ########.fr       */
+/*   Created: 2016/11/24 17:30:42 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/24 23:45:15 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_baselen(int n, int base)
+int		ft_cntdigit(int n)
 {
 	int i;
 
-	i = 0;
-	while (n >= base)
+	i = 1;
+	n = (n < 0) ? -n : n;
+	while (n >= 10)
 	{
-		n = n / base;
+		n = n / 10;
 		i++;
 	}
 	return (i);

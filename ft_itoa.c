@@ -6,12 +6,11 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:30:29 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/24 17:32:07 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/25 00:06:08 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static	char	*magic(int n, int len, int is_neg)
 {
@@ -19,11 +18,10 @@ static	char	*magic(int n, int len, int is_neg)
 
 	if (!(dst = ft_strnew(len)))
 		return (NULL);
-	while (len != -1)
+	while (len-- != -1)
 	{
 		dst[len] = (n % 10 + '0');
 		n /= 10;
-		len--;
 	}
 	if (is_neg)
 		dst[0] = '-';
@@ -32,7 +30,7 @@ static	char	*magic(int n, int len, int is_neg)
 
 char			*ft_itoa(int n)
 {
-	int		d;
+	int		len;
 	int		is_neg;
 
 	if (n == MINIMUM_INT)
@@ -43,6 +41,6 @@ char			*ft_itoa(int n)
 		n *= -1;
 		is_neg = 1;
 	}
-	d = (is_neg) ? ft_baselen(n, 10) + 1 : ft_baselen(n, 10);
-	return (magic(n, d, is_neg));
+	len = (is_neg) ? ft_cntdigit(n) + 1 : ft_cntdigit(n);
+	return (magic(n, len, is_neg));
 }
