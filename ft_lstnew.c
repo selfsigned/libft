@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 11:17:13 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/25 11:57:40 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/25 14:05:05 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	{
 		if (!(new->content = ft_memalloc(content_size)))
 		{
-			free (new);
+			free(new);
 			return (NULL);
 		}
 		ft_memcpy(new->content, content, content_size);
