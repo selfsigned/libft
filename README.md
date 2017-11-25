@@ -1,5 +1,5 @@
 # My (rad!) Libft
-*42's version of the libc... done stupidly!*
+A certain school's version of the libc... done stupidly!*
 
 ## Additional functions
 *Moar functions, yay!*
