@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 21:00:59 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/25 22:59:45 by xperrin          ###   ########.fr       */
+/*   Created: 2017/11/25 23:03:23 by xperrin           #+#    #+#             */
+/*   Updated: 2017/11/26 00:44:01 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	while(lst)
+	t_list *new;
+	t_list *tmp;
+
+	new = f(lst);
+	tmp = new;
+	while (lst->next)
 	{
-		f(lst);
+		new->next = f(lst->next);
 		lst = lst->next;
+		new = new->next;
 	}
+	return (tmp);
 }

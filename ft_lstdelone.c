@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 15:39:17 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/25 17:31:29 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/25 23:53:42 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	del((*alst)->content, sizeof(*alst));
+	del((*alst)->content, (*alst)->content_size);
 	free(*alst);
 	*alst = NULL;
 }
