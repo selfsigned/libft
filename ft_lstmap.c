@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 23:03:23 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/26 00:44:01 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/26 17:40:12 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list *new;
 	t_list *tmp;
 
+	if (!lst || !f)
+		return (NULL);
 	new = f(lst);
 	tmp = new;
 	while (lst->next)

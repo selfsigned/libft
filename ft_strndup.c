@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 20:38:43 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/24 20:46:40 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/26 17:23:17 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 char	*ft_strndup(char const *s, size_t n)
 {
-	return (ft_strsub(s, 0, n));
+	char *new;
+
+	if (!(new = ft_strnew(n)))
+		return (NULL);
+	ft_strncpy(new, s, n);
+	return (new);
 }
