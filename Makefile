@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/25 23:02:54 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/26 13:35:04 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ FT_BONUS = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 	ft_lstiter.c ft_lstmap.c
 FT_CUSTOM = ft_islower.c ft_isupper.c ft_strupcase.c ft_strlowcase.c \
 	ft_cntword.c ft_strrlen.c ft_strndup.c \
-	ft_cntdigit.c ft_pow.c
+	ft_cntdigit.c ft_pow.c ft_sqrt.c
 SRC = $(FT_LIBC) $(FT_42) $(FT_CUSTOM) $(FT_BONUS)
 OBJ = $(SRC:.c=.o)
 
