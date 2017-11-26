@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 20:39:39 by xperrin           #+#    #+#             */
-/*   Updated: 2017/10/05 20:47:40 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/26 19:07:06 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *src, int c, size_t len)
 
 	i = -1;
 	while (++i < len)
-		if (((char*)src)[i] == c)
+		if (((unsigned char*)src)[i] == (unsigned char)c)
 			return ((void*)src + i);
 	return (NULL);
 }
