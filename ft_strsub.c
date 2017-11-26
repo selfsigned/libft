@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 11:45:21 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/21 14:08:19 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/26 17:00:10 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	i = -1;
 	while (++i != start)
 		s++;
-	if (!(str = ft_strnew(len)))
+	if (!s || !(str = ft_strnew(len)))
 		return (NULL);
 	return (ft_strncpy(str, s, len));
 }

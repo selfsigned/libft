@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 19:19:59 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/20 22:41:21 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/26 15:53:54 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*str;
 	char	*tmp;
 
-	if (!(str = ft_strdup((s))))
+	if (!s || !f || !(str = ft_strdup((s))))
 		return (NULL);
 	tmp = str;
 	while (*s)
