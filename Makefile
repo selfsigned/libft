@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/26 13:35:04 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/28 20:31:26 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = libft.a
 SONAME = $(NAME:.a=.so)
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -I.
-
+INC = -Iincludes
+SRCDIR = src
 FT_LIBC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_memchr.c ft_memcmp.c \
 	ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
@@ -34,8 +34,16 @@ FT_BONUS = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 FT_CUSTOM = ft_islower.c ft_isupper.c ft_strupcase.c ft_strlowcase.c \
 	ft_cntword.c ft_strrlen.c ft_strndup.c \
 	ft_cntdigit.c ft_pow.c ft_sqrt.c
-SRC = $(FT_LIBC) $(FT_42) $(FT_CUSTOM) $(FT_BONUS)
-OBJ = $(SRC:.c=.o)
+SRCFILES = $(FT_LIBC) $(FT_42) $(FT_BONUS) $(FT_CUSTOM)
+SRC = $(ADDPREFIX $(SRCFILES)/, $(SRC))
+OBJ = $(SRCFILES:.c=.o)
+
+# Dude colors lmao
+GOOD_COLOR=\x1b[32;01m
+AIGHT_COLOR=\x1b[33;01m
+OFUCK_COLOR=\x1b[31;01m
+COLORLESS=\x1b[0m
+ECHO = echo -e
 
 .PHONY: all so clean fclean re
 
@@ -44,19 +52,25 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(AR) rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "Archived library updated"
+	@$(ECHO) "$(GOOD_COLOR)Archived library updated."
 
 $(SONAME): CFLAGS += -fPIC
 $(SONAME): $(OBJ)
 	@$(CC) -shared -o $(SONAME) $(OBJ)
-	@echo "Shared object updated"
+	@$(ECHO) "$(GOOD_COLOR)Shared object updated."
 
 so: $(SONAME)
 
+%.o: $(SRCDIR)/%.c
+	@$(ECHO) "$(COLORLESS)- Compiling $(AIGHT_COLOR)$(@:.o=)$(OFUCK_COLOR)"
+	@$(CC) $(CFLAGS) -c -o $@ $< $(INC)
+
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
+	@$(ECHO) "$(OFUCK_COLOR)Objects eliminated.$(COLORLESS)"
 
 fclean: clean
-	$(RM) $(NAME) $(SONAME)
+	@$(RM) $(NAME) $(SONAME)
+	@$(ECHO) "$(OFUCK_COLOR)Archive eliminated.$(COLORLESS)"
 
 re: fclean all
