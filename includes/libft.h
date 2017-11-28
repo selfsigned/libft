@@ -6,16 +6,14 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/25 14:58:27 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/11/28 20:44:35 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
 # include <string.h>
-# include <unistd.h>
 
 # define MAXIMUM_INT 2147483647
 # define MINIMUM_INT -2147483648
