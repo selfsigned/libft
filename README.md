@@ -45,7 +45,7 @@ Functions I created:
 - ft_memset
 - ft_bzero
 - ft_memcpy
-- ft_memccpy 
+- ft_memccpy
 - ft_memmove
 - ft_memchr
 - ft_memcmp
@@ -64,12 +64,6 @@ Functions I created:
 - ft_strncmp
 - ft_atoi
 - ft_isalpha
-- ft_isdigit
-- ft_isalnum
-- ft_isascii
-- ft_isprint
-- ft_toupper
-- ft_tolower
 - ft_isdigit
 - ft_isalnum
 - ft_isascii

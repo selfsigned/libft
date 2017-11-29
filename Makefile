@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/11/28 20:31:26 by xperrin          ###   ########.fr        #
+#    Updated: 2017/11/29 16:31:31 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,11 @@ GOOD_COLOR=\x1b[32;01m
 AIGHT_COLOR=\x1b[33;01m
 OFUCK_COLOR=\x1b[31;01m
 COLORLESS=\x1b[0m
-ECHO = echo -e
+ifeq ($(shell uname), Linux)
+	ECHO = echo -e
+else
+	ECHO = echo
+endif
 
 .PHONY: all so clean fclean re
 
@@ -52,12 +56,12 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(AR) rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@$(ECHO) "$(GOOD_COLOR)Archived library updated."
+	@$(ECHO) "$(GOOD_COLOR)Archived library updated.$(COLORLESS)"
 
 $(SONAME): CFLAGS += -fPIC
 $(SONAME): $(OBJ)
 	@$(CC) -shared -o $(SONAME) $(OBJ)
-	@$(ECHO) "$(GOOD_COLOR)Shared object updated."
+	@$(ECHO) "$(GOOD_COLOR)Shared object updated.$(COLORLESS)"
 
 so: $(SONAME)
 
