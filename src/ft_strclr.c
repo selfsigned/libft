@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:57:25 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/26 15:40:37 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/12/01 19:58:26 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_strclr(char *s)
 {
-	if (s)
-		ft_bzero(s, ft_strlen(s));
+	ft_bzero(s, ft_strlen(s));
 }

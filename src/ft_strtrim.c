@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 15:17:01 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/26 17:03:52 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/12/01 20:01:28 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strtrim(char const *s)
 	unsigned int	i;
 	unsigned int	e;
 
-	if (!s)
-		return (NULL);
 	e = 0;
 	i = ft_strlen(s);
 	while (s[e] == ' ' || s[e] == ',' || s[e] == '\n' || s[e] == '\t')

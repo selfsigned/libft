@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 19:14:31 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/26 15:52:26 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/12/01 19:58:45 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (s && f)
-		while (*s)
-			f(s++);
+	while (*s)
+		f(s++);
 }

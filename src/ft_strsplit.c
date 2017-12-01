@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 10:15:21 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/26 17:06:31 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/12/01 20:01:46 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char		**ft_strsplit(char const *s, char c)
 	int		wc;
 	char	**dst;
 
-	if (!s || !c)
-		return (NULL);
 	wc = ft_cntword(s, c);
 	if (!(dst = (char**)ft_memalloc(sizeof(char*) * (wc + 1))))
 		return (NULL);

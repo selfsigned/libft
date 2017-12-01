@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 22:53:00 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/26 15:57:31 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/12/01 20:00:28 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strequ(char const *s1, char const *s2)
 {
-	if (!s1 || !s2 || !(ft_strcmp(s1, s2)))
+	if (!(ft_strcmp(s1, s2)))
 		return ((!s1 || !s2) ? 0 : 1);
 	return (0);
 }
