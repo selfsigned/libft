@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2017/11/29 16:02:13 by xperrin          ###   ########.fr       */
+/*   Updated: 2017/12/04 16:09:45 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ char				*ft_strlowcase(char *s);
 int					ft_cntdigit(int n);
 int					ft_pow(int x, int y);
 int					ft_sqrt(int x);
+void				ft_strdeltab(char **tab, size_t tab_len);
 
 #endif
