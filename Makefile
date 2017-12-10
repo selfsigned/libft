@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/12/04 16:15:58 by xperrin          ###   ########.fr        #
+#    Updated: 2017/12/10 21:29:31 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME = libft.a
 SONAME = $(NAME:.a=.so)
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-INC = -Iincludes
-SRCDIR = src
+INC = -I.
 FT_LIBC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_memchr.c ft_memcmp.c \
 	ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
@@ -35,9 +34,8 @@ FT_CUSTOM = ft_islower.c ft_isupper.c ft_strupcase.c ft_strlowcase.c \
 	ft_cntword.c ft_strrlen.c ft_strndup.c \
 	ft_cntdigit.c ft_pow.c ft_sqrt.c \
 	ft_strdeltab.c
-SRCFILES = $(FT_LIBC) $(FT_42) $(FT_BONUS) $(FT_CUSTOM)
-SRC = $(ADDPREFIX $(SRCFILES)/, $(SRC))
-OBJ = $(SRCFILES:.c=.o)
+SRC = $(FT_LIBC) $(FT_42) $(FT_BONUS) $(FT_CUSTOM)
+OBJ = $(SRC:.c=.o)
 
 # Dude colors lmao
 GOOD_COLOR=\x1b[32;01m
@@ -66,7 +64,7 @@ $(SONAME): $(OBJ)
 
 so: $(SONAME)
 
-%.o: $(SRCDIR)/%.c
+%.o: %.c libft.h
 	@$(ECHO) "$(COLORLESS)- Compiling $(AIGHT_COLOR)$(@:.o=)$(OFUCK_COLOR)"
 	@$(CC) $(CFLAGS) -c -o $@ $< $(INC)
 
