@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/12/16 04:20:42 by xperrin          ###   ########.fr        #
+#    Updated: 2017/12/16 18:26:05 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,11 @@ NAME = libft.a
 SONAME = $(NAME:.a=.so)
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-INC = -Iincludes
+INCDIR = includes
+INCFILES = libft.h
+INCFULL = $(addprefix $(INCDIR)/, $(INCFILES))
+INC = $(addprefix -I, $(INCDIR))
 SRCDIR = src
-OBJDIR = obj
-
 
 # Source Files
 MEMDIR = memory
@@ -83,8 +84,8 @@ $(SONAME): $(OBJ)
 
 so: $(SONAME)
 
-%.o: %.c
-	@$(ECHO) "$(GOOD)[LIBFT]$(AIGHT)[$(dir $@)]$(NOCOLOR)🤔$(notdir $(@:.o=))$(NOCOLOR)"
+%.o: %.c $(INCFULL)
+	@$(ECHO) "$(GOOD)[LIBFT]$(AIGHT)[$(*D)]$(NOCOLOR)🤔$(notdir $(@:.o=))$(NOCOLOR)"
 	@$(CC) $(CFLAGS) -c -o $@ $< $(INC)
 
 # Cleanup
