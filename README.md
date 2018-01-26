@@ -1,47 +1,54 @@
-# My (rad!) Libft
-A certain school's version of the libc... done stupidly!*
+# Libft/GNL
+My libft and GNL projects as a single lib
 
-## Additional functions
-*Moar functions, yay!*
+# GNL
+| NAME          | get\_next\_line - read from a fd line per line                                                                                                                                              |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SYNOPSIS      | int get\_next\_line(const int fd, char **line)                                                                                                                                              |
+| DESCRIPTION   | the __get\_next\_line()__ function stores the content of a line (array of char ending with a newline or EOF) __without the trailing newline__ read from __fd__ into the address of __line__ |
+| RETURN VALUES |  1 if a line has been read, 0 if the reading has been completed, -1 if an error happened                                                                                                    |
+
+# Libft
+## Bonus functions
 
 Functions from the __libc__:
 - ft_islower
 - ft_isupper
 - ft_strndup
 
-Functions I created:
+Homebrewn functions:
 
-| NAME          | ft_strrlen -- find length until character                                                                                                         |
+| NAME          | ft\_strrlen -- find length until character                                                                                                        |
 |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| SYNOPSIS      |  size_t ft_strrlen(const char **s, char c);                                                                                                       |
+| SYNOPSIS      |  size\_t ft_strrlen(const char **s, char c);                                                                                                       |
 | DESCRIPTION   | The __ft_strrlen()__ function computes the offset between the start of the string __s__ and the character __c__.                                  |
 | RETURN VALUES | The number of characters that precede the given character, or __ft_strlen()__ if the character isn't found in the string.                         |
 
-| NAME          | ft_cntword - count the number of words                                                                                                                                                                                                                     |
+| NAME          | ft\_cntword - count the number of words                                                                                                                                                                                                                     |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SYNOPSIS      | int ft_cntword(char const *s, char c);                                                                                                                                                                                                                        |
-| DESCRIPTION   | The __ft_cntword()__ function computes the number of 'words' delimited by the character __c__ in the NULL terminated string __s__. A 'word' is a section of a string delimited by a given character, excluding the first and the last character of the string.|
+| SYNOPSIS      | int ft\_cntword(char const *s, char c);                                                                                                                                                                                                                        |
+| DESCRIPTION   | The __ft\_cntword()__ function computes the number of 'words' delimited by the character __c__ in the NULL terminated string __s__. A 'word' is a section of a string delimited by a given character, excluding the first and the last character of the string.|
 | RETURN VALUES | The number of words in the string pointed by __s__. Otherwise 0 if __s__ is empty or 1 if c isn't found in __s__ (or is '\0')                                                                                        |
 
-| NAME         | ft_cntdigit - count the number of digits                                      |
+| NAME         | ft\_cntdigit - count the number of digits                                     |
 |--------------|-------------------------------------------------------------------------------|
-| SYNOPSIS     | int ft_cntdigit(int n);                                                       |
-| DESCRIPTION  | The __ft_cntdigit()__ function computes the number of digits in the number n. |
+| SYNOPSIS     | int ft\_cntdigit(int n);                                                      |
+| DESCRIPTION  | The __ft\_cntdigit()__ function computes the number of digits in the number n.|
 | RETURN VALUE | The number of digits starting from 1                                          |
 
-| NAME         | ft_strlowcase - converts to lowercase                                                            |
+| NAME         | ft\_strlowcase - converts to lowercase                                                           |
 |--------------|--------------------------------------------------------------------------------------------------|
-| SYNOPSIS     | char ft_strlowcase(char *s);                                                                     |
-| DESCRIPTION  | The __ft_strlowcase()__ function converts uppercase characters in the string __s__ to lowercase. |
+| SYNOPSIS     | char ft\_strlowcase(char *s);                                                                    |
+| DESCRIPTION  | The __ft\_strlowcase()__ function converts uppercase characters in the string __s__ to lowercase.|
 | RETURN VALUE | The string converted to uppercase.                                                               |
 
-| NAME         | ft_strupcase - converts to uppercase                                                            |
+| NAME         | ft\_strupcase - converts to uppercase                                                           |
 |--------------|-------------------------------------------------------------------------------------------------|
-| SYNOPSIS     | char ft_strupcase(char *s);                                                                     |
-| DESCRIPTION  | The __ft_strupcase()__ function converts lowercase characters in the string __s__ to uppercase. |
+| SYNOPSIS     | char ft\_strupcase(char *s);                                                                    |
+| DESCRIPTION  | The __ft\_strupcase()__ function converts lowercase characters in the string __s__ to uppercase.|
 | RETURN VALUE | The string converted to uppercase.                                                              |
 
-## Part 1 Functions
+## Part 1 Functions (libc functions)
 - ft_memset
 - ft_bzero
 - ft_memcpy

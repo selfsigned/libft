@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2017/12/20 17:13:45 by xperrin          ###   ########.fr        #
+#    Updated: 2018/01/26 16:30:58 by sakuya           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SONAME = $(NAME:.a=.so)
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
 INCDIR = includes
-INCFILES = libft.h
+INCFILES = libft.h get_next_line.h
 INCFULL = $(addprefix $(INCDIR)/, $(INCFILES))
 INC = $(addprefix -I, $(INCDIR))
 
@@ -48,9 +48,12 @@ FT_LST = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 MATHDIR = src/math
 FT_MATH = ft_cntdigit.c ft_pow.c ft_sqrt.c
 
+GNLDIR = src/gnl
+GNL = get_next_line.c
+
 OBJDIR = obj
-VPATH = $(MEMDIR):$(STRDIR):$(DISPDIR):$(LSTDIR):$(MATHDIR)
-SRC = $(FT_MEM) $(FT_STR) $(FT_DISP) $(FT_LST) $(FT_MATH)
+VPATH = $(MEMDIR):$(STRDIR):$(DISPDIR):$(LSTDIR):$(MATHDIR):$(GNLDIR)
+SRC = $(FT_MEM) $(FT_STR) $(FT_DISP) $(FT_LST) $(FT_MATH) $(GNL)
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 # Dude colors lmao
