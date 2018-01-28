@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/01/26 16:30:58 by sakuya           ###   ########.fr        #
+#    Updated: 2018/01/28 17:13:02 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ else
 	ECHO = echo
 endif
 
-.PHONY: all so clean fclean re
+.PHONY: all so clean fclean re test moulitest
 
 all: $(NAME)
 
@@ -89,6 +89,24 @@ $(OBJDIR):
 $(OBJDIR)/%.o: %.c $(INCFULL) | $(OBJDIR)
 	@$(ECHO) "$(GOOD)[LIBFT]$(AIGHT)[$(dir $<)]$(NOCOLOR)$(notdir $(@:.o=))"
 	@$(CC) $(CFLAGS) -c -o $@ $< $(INC)
+
+# Tests
+MOULITEST_REPO = https://github.com/yyang42/moulitest
+
+test: moulitest
+
+moulitest: re
+	git clone $(MOULITEST_REPO)
+	echo 'LIBFT_PATH = $$PWD/../..' > moulitest/config.ini
+	$(MAKE) --no-print-directory -C moulitest/ libft_bonus > trace.txt
+	@$(ECHO) "$(GOOD)[MOULITEST]$(NOCOLOR)Tests finished, see trace.txt"
+	@$(RM) -rf moulitest/
+	@if grep -q "FAIL" trace.txt ; then \
+		$(ECHO) "$(GOOD)[MOULITEST]$(WARN)Some tests failed$(NOCOLOR)"; \
+		exit 1; \
+	else \
+		$(ECHO) "$(GOOD)[MOULITEST]$(NOCOLOR)All tests passed"; \
+	fi
 
 # Cleanup
 clean:
