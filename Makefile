@@ -6,25 +6,27 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/01/28 17:13:02 by xperrin          ###   ########.fr        #
+#    Updated: 2018/01/29 14:42:32 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SONAME = $(NAME:.a=.so)
-CC = clang
+DNAME = $(NAME)
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCDIR = includes
 INCFILES = libft.h get_next_line.h
 INCFULL = $(addprefix $(INCDIR)/, $(INCFILES))
 INC = $(addprefix -I, $(INCDIR))
+SRCDIR = src
 
 # Source Files
-MEMDIR = src/memory
+MEMDIR = $(SRCDIR)/memory
 FT_MEM = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c
 
-STRDIR = src/string
+STRDIR = $(SRCDIR)/string
 FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
 	ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c \
@@ -37,18 +39,18 @@ FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	ft_strtrim.c ft_strsplit.c ft_itoa.c \
 	ft_cntword.c ft_strrlen.c ft_strndup.c ft_strdeltab.c
 
-DISPDIR = src/display
+DISPDIR = $(SRCDIR)/display
 FT_DISP = ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-LSTDIR = src/list
+LSTDIR = $(SRCDIR)/list
 FT_LST = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 	ft_lstiter.c ft_lstmap.c
 
-MATHDIR = src/math
+MATHDIR = $(SRCDIR)/math
 FT_MATH = ft_cntdigit.c ft_pow.c ft_sqrt.c
 
-GNLDIR = src/gnl
+GNLDIR = $(SRCDIR)/gnl
 GNL = get_next_line.c
 
 OBJDIR = obj
@@ -57,15 +59,10 @@ SRC = $(FT_MEM) $(FT_STR) $(FT_DISP) $(FT_LST) $(FT_MATH) $(GNL)
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 # Dude colors lmao
-GOOD=\x1b[32;01m
-AIGHT=\x1b[33;01m
-WARN=\x1b[31;01m
-NOCOLOR=\x1b[0m
-ifeq ($(shell uname), Linux)
-	ECHO = echo -e
-else
-	ECHO = echo
-endif
+GOOD=\033[1;32m
+AIGHT=\033[1;33m
+WARN=\033[1;31m
+NOCOLOR=\033[0m
 
 .PHONY: all so clean fclean re test moulitest
 
@@ -74,12 +71,13 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(AR) rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@$(ECHO) "$(GOOD)[LIBFT]Archived library updated.$(NOCOLOR)"
+	@printf "$(GOOD)[$(DNAME)]Archived library updated.$(NOCOLOR)\n"
 
 $(SONAME): CFLAGS += -fPIC
+$(SONAME): DNAME = $(SONAME)
 $(SONAME): $(OBJ)
 	@$(CC) -shared -o $(SONAME) $(OBJ)
-	@$(ECHO) "$(GOOD)[LIBFT]Shared object updated.$(NOCOLOR)"
+	@printf "$(GOOD)[$(DNAME)]Shared object updated.$(NOCOLOR)\n"
 
 so: $(SONAME)
 
@@ -87,34 +85,36 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o: %.c $(INCFULL) | $(OBJDIR)
-	@$(ECHO) "$(GOOD)[LIBFT]$(AIGHT)[$(dir $<)]$(NOCOLOR)$(notdir $(@:.o=))"
+	@printf "$(GOOD)[$(DNAME)]$(AIGHT)[$(dir $<)]$(NOCOLOR)$(notdir $(@:.o=))\n"
 	@$(CC) $(CFLAGS) -c -o $@ $< $(INC)
 
 # Tests
 MOULITEST_REPO = https://github.com/yyang42/moulitest
+MOULITEST_TRACE = moulitrace.txt
 
 test: moulitest
 
-moulitest: re
-	git clone $(MOULITEST_REPO)
+moulitest: $(NAME)
+	if [ ! -d moulitest ]; then \
+		git clone $(MOULITEST_REPO); fi
 	echo 'LIBFT_PATH = $$PWD/../..' > moulitest/config.ini
-	$(MAKE) --no-print-directory -C moulitest/ libft_bonus > trace.txt
-	@$(ECHO) "$(GOOD)[MOULITEST]$(NOCOLOR)Tests finished, see trace.txt"
-	@$(RM) -rf moulitest/
-	@if grep -q "FAIL" trace.txt ; then \
-		$(ECHO) "$(GOOD)[MOULITEST]$(WARN)Some tests failed$(NOCOLOR)"; \
+	$(MAKE) --no-print-directory -C moulitest/ libft_bonus > $(MOULITEST_TRACE)
+	@printf "$(GOOD)[MOULITEST]$(NOCOLOR)Tests finished, see $(MOULITEST_TRACE)\n"
+	@if grep -qE "ABRT|SEGV|BUS\!|TIME|FAIL" $(MOULITEST_TRACE) ; then \
+		printf "$(GOOD)[MOULITEST]$(WARN)Some tests failed$(NOCOLOR)\n"; \
 		exit 1; \
 	else \
-		$(ECHO) "$(GOOD)[MOULITEST]$(NOCOLOR)All tests passed"; \
+		printf "$(GOOD)[MOULITEST]$(NOCOLOR)All tests passed\n"; \
 	fi
 
 # Cleanup
 clean:
 	@$(RM) -r $(OBJDIR)
-	@$(ECHO) "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Object directory removed"
+	@$(RM) -rf moulitest/
+	@printf "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Object directory removed\n"
 
 fclean: clean
-	@$(RM) $(NAME) $(SONAME)
-	@$(ECHO) "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Archive removed"
+	@$(RM) $(NAME) $(SONAME) $(MOULITEST_TRACE)
+	@printf "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Archive removed\n"
 
 re: fclean all
