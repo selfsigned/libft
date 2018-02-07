@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/01/29 14:42:32 by xperrin          ###   ########.fr        #
+#    Updated: 2018/02/07 02:45:31 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,12 +92,14 @@ $(OBJDIR)/%.o: %.c $(INCFULL) | $(OBJDIR)
 MOULITEST_REPO = https://github.com/yyang42/moulitest
 MOULITEST_TRACE = moulitrace.txt
 
+test: CFLAGS += --coverage
 test: moulitest
 
 moulitest: $(NAME)
 	if [ ! -d moulitest ]; then \
 		git clone $(MOULITEST_REPO); fi
 	echo 'LIBFT_PATH = $$PWD/../..' > moulitest/config.ini
+	sed -i '26s/$$/ --coverage/' moulitest/libft_tests/Makefile
 	$(MAKE) --no-print-directory -C moulitest/ libft_bonus > $(MOULITEST_TRACE)
 	@printf "$(GOOD)[MOULITEST]$(NOCOLOR)Tests finished, see $(MOULITEST_TRACE)\n"
 	@if grep -qE "ABRT|SEGV|BUS\!|TIME|FAIL" $(MOULITEST_TRACE) ; then \
