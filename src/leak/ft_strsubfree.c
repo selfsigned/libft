@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strsubfree.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 19:54:28 by xperrin           #+#    #+#             */
-/*   Updated: 2018/02/23 22:50:12 by xperrin          ###   ########.fr       */
+/*   Created: 2018/03/12 19:55:54 by xperrin           #+#    #+#             */
+/*   Updated: 2018/03/12 19:57:07 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strsubfree(char *s, unsigned int start, size_t len)
 {
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		if (n == INT_MIN)
-		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
-		}
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	char	*r;
+
+	r = ft_strsub(s, start, len);
+	ft_strdel(&s);
+	return (r);
 }

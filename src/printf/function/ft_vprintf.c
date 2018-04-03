@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_vprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 19:54:28 by xperrin           #+#    #+#             */
-/*   Updated: 2018/02/23 22:50:12 by xperrin          ###   ########.fr       */
+/*   Created: 2018/01/26 18:42:32 by xperrin           #+#    #+#             */
+/*   Updated: 2018/01/29 16:00:38 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_vprintf(const char *format, va_list ap)
 {
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		if (n == INT_MIN)
-		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
-		}
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	return (ft_vdprintf(0, format, ap));
 }

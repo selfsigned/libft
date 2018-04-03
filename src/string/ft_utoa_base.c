@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_utoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 19:54:28 by xperrin           #+#    #+#             */
-/*   Updated: 2018/02/23 22:50:12 by xperrin          ###   ########.fr       */
+/*   Created: 2018/03/02 22:33:42 by xperrin           #+#    #+#             */
+/*   Updated: 2018/03/06 15:26:10 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static	int		ft_cntdigt_b(uintmax_t n, size_t radix)
 {
-	if (n < 0)
+	size_t	r;
+
+	r = 1;
+	while (n >= radix)
 	{
-		ft_putchar_fd('-', fd);
-		if (n == INT_MIN)
-		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
-		}
-		n = -n;
+		n /= radix;
+		r++;
 	}
-	if (n > 9)
+	return (r);
+}
+
+char			*ft_utoa_base(uintmax_t n, char *base)
+{
+	char			*str;
+	size_t			radix;
+	int				nlen;
+
+	radix = ft_strlen(base);
+	nlen = ft_cntdigt_b(n, radix);
+	if (!(str = ft_strnew(nlen)))
+		return (NULL);
+	while (nlen--)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		str[nlen] = base[n % radix];
+		n /= radix;
 	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	return (str);
 }

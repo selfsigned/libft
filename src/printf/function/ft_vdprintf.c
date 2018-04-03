@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 19:54:28 by xperrin           #+#    #+#             */
-/*   Updated: 2018/02/23 22:50:12 by xperrin          ###   ########.fr       */
+/*   Created: 2018/01/26 18:41:49 by xperrin           #+#    #+#             */
+/*   Updated: 2018/03/20 20:12:23 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
+#include <unistd.h>
 
-void	ft_putnbr_fd(int n, int fd)
+int				ft_vdprintf(int fd, const char *format, va_list ap)
 {
-	if (n < 0)
+	size_t	i;
+	int		res;
+	t_parg	parg;
+
+	(void)ap;
+	res = 0;
+	i = 0;
+	while (format[i])
 	{
-		ft_putchar_fd('-', fd);
-		if (n == INT_MIN)
+		if (format[i] == '%')
 		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
+			i++;
+			parg = printf_readarg(i, format);
+			if (!parg.error)
+				res += printf_printarg(fd, parg, ap);
+			i = parg.convlen;
 		}
-		n = -n;
+		else
+		{
+			write(fd, format + i, 1);
+			i++;
+			res += 1;
+		}
 	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	return (res);
 }

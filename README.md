@@ -1,4 +1,4 @@
-# Libft/GNL [![Build Status](https://travis-ci.org/xperrin/libft.svg?branch=master)](https://travis-ci.org/xperrin/libft) [![Coverage Status](https://coveralls.io/repos/github/xperrin/libft/badge.svg?branch=master)](https://coveralls.io/github/xperrin/libft?branch=master)
+# Libft/GNL/Printf [![Build Status](https://travis-ci.org/xperrin/libft.svg?branch=master)](https://travis-ci.org/xperrin/libft) [![Coverage Status](https://coveralls.io/repos/github/xperrin/libft/badge.svg?branch=master)](https://coveralls.io/github/xperrin/libft?branch=master)
 My libft and GNL projects as a single lib
 
 # GNL
@@ -7,6 +7,15 @@ My libft and GNL projects as a single lib
 | SYNOPSIS      | int get\_next\_line(const int fd, char **line)                                                                                                                                              |
 | DESCRIPTION   | the __get\_next\_line()__ function stores the content of a line (array of char ending with a newline or EOF) __without the trailing newline__ read from __fd__ into the address of __line__ |
 | RETURN VALUES |  1 if a line has been read, 0 if the reading has been completed, -1 if an error happened                                                                                                    |
+# Printf
+### Handled types
+cCsSpdDioOuUxXb%
+
+### Functions
+- ft_dprintf
+- ft_vdprintf
+- ft_printf
+- ft_vprintf
 
 # Libft
 ## Bonus functions

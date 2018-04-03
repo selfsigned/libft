@@ -6,17 +6,17 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/02/07 02:45:31 by xperrin          ###   ########.fr        #
+#    Updated: 2018/04/03 20:51:17 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SONAME = $(NAME:.a=.so)
 DNAME = $(NAME)
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -pedantic
 INCDIR = includes
-INCFILES = libft.h get_next_line.h
+PRINTFINC = printf.h printf_structs.h printf_conv.h
+INCFILES = libft.h get_next_line.h $(PRINTFINC)
 INCFULL = $(addprefix $(INCDIR)/, $(INCFILES))
 INC = $(addprefix -I, $(INCDIR))
 SRCDIR = src
@@ -36,8 +36,8 @@ FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	ft_strnew.c ft_strdel.c ft_strclr.c \
 	ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 	ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
-	ft_strtrim.c ft_strsplit.c ft_itoa.c \
-	ft_cntword.c ft_strrlen.c ft_strndup.c ft_strdeltab.c
+	ft_strtrim.c ft_strsplit.c ft_itoa.c ft_itoa_base.c ft_utoa_base.c \
+	ft_cntword.c ft_strrlen.c ft_strndup.c
 
 DISPDIR = $(SRCDIR)/display
 FT_DISP = ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
@@ -47,15 +47,27 @@ LSTDIR = $(SRCDIR)/list
 FT_LST = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 	ft_lstiter.c ft_lstmap.c
 
+LEAKDIR = $(SRCDIR)/leak
+FT_LEAK = ft_strsubfree.c ft_strjoinfreea.c ft_strjoinfreeb.c ft_strdeltab.c
+
 MATHDIR = $(SRCDIR)/math
 FT_MATH = ft_cntdigit.c ft_pow.c ft_sqrt.c
 
 GNLDIR = $(SRCDIR)/gnl
 GNL = get_next_line.c
 
+PRINTFP = $(SRCDIR)/printf
+PRINTFDIR = $(PRINTFP)/function:$(PRINTFP)/parse $(PRINTFP)/conv
+PRINTF_FUN = ft_printf.c ft_dprintf.c ft_vprintf.c ft_vdprintf.c
+PRINTF_PARSE = readarg.c printarg.c
+PRINTF_CONV = conv_t.c conv_char.c conv_string.c \
+	      conv_int.c conv_uint.c conv_ptr.c conv_unicode.c
+PRINTF = $(PRINTF_FUN) $(PRINTF_PARSE) $(PRINTF_CONV)
+
 OBJDIR = obj
-VPATH = $(MEMDIR):$(STRDIR):$(DISPDIR):$(LSTDIR):$(MATHDIR):$(GNLDIR)
-SRC = $(FT_MEM) $(FT_STR) $(FT_DISP) $(FT_LST) $(FT_MATH) $(GNL)
+VPATH = $(MEMDIR):$(STRDIR):$(DISPDIR):$(LSTDIR):$(LEAKDIR):$(MATHDIR):\
+	$(GNLDIR):$(PRINTFDIR)
+SRC = $(FT_MEM) $(FT_STR) $(FT_DISP) $(FT_LST) $(FT_MATH) $(FT_LEAK) $(GNL) $(PRINTF)
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 # Dude colors lmao
@@ -64,7 +76,7 @@ AIGHT=\033[1;33m
 WARN=\033[1;31m
 NOCOLOR=\033[0m
 
-.PHONY: all so clean fclean re test moulitest
+.PHONY: all so clean fclean re test moulitest_libft
 
 all: $(NAME)
 
@@ -92,14 +104,12 @@ $(OBJDIR)/%.o: %.c $(INCFULL) | $(OBJDIR)
 MOULITEST_REPO = https://github.com/yyang42/moulitest
 MOULITEST_TRACE = moulitrace.txt
 
-test: CFLAGS += --coverage
-test: moulitest
+test: moulitest_libft
 
-moulitest: $(NAME)
+moulitest_libft: $(NAME)
 	if [ ! -d moulitest ]; then \
 		git clone $(MOULITEST_REPO); fi
 	echo 'LIBFT_PATH = $$PWD/../..' > moulitest/config.ini
-	sed -i '26s/$$/ --coverage/' moulitest/libft_tests/Makefile
 	$(MAKE) --no-print-directory -C moulitest/ libft_bonus > $(MOULITEST_TRACE)
 	@printf "$(GOOD)[MOULITEST]$(NOCOLOR)Tests finished, see $(MOULITEST_TRACE)\n"
 	@if grep -qE "ABRT|SEGV|BUS\!|TIME|FAIL" $(MOULITEST_TRACE) ; then \
@@ -112,11 +122,12 @@ moulitest: $(NAME)
 # Cleanup
 clean:
 	@$(RM) -r $(OBJDIR)
-	@$(RM) -rf moulitest/
 	@printf "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Object directory removed\n"
 
 fclean: clean
-	@$(RM) $(NAME) $(SONAME) $(MOULITEST_TRACE)
+	@$(RM) $(NAME) $(SONAME)
 	@printf "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Archive removed\n"
 
-re: fclean all
+re:
+	@$(MAKE) --no-print-directory fclean
+	@$(MAKE) --no-print-directory all

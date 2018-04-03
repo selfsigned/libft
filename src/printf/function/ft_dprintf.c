@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/04 19:54:28 by xperrin           #+#    #+#             */
-/*   Updated: 2018/02/23 22:50:12 by xperrin          ###   ########.fr       */
+/*   Created: 2018/01/26 18:41:16 by xperrin           #+#    #+#             */
+/*   Updated: 2018/01/29 15:57:43 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_dprintf(int fd, const char *format, ...)
 {
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		if (n == INT_MIN)
-		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
-		}
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	int		res;
+	va_list	ap;
+
+	va_start(ap, format);
+	res = ft_vdprintf(fd, format, ap);
+	va_end(ap);
+	return (res);
 }
