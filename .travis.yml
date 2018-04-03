@@ -1,4 +1,5 @@
 language: c
+compiler: clang
 before_install:
         - pip install --user cpp-coveralls
 script:

@@ -1,4 +1,4 @@
-# Libft/GNL/Printf [![Build Status](https://travis-ci.org/xperrin/libft.svg?branch=master)](https://travis-ci.org/xperrin/libft) [![Coverage Status](https://coveralls.io/repos/github/xperrin/libft/badge.svg?branch=master)](https://coveralls.io/github/xperrin/libft?branch=master)
+# Libft/GNL/Printf [![Build Status](https://travis-ci.org/selfsigned/libft.svg?branch=master)](https://travis-ci.org/selfsigned/libft) [![Coverage Status](https://coveralls.io/repos/github/selfsigned/libft/badge.svg?branch=master)](https://coveralls.io/github/selfsigned/libft?branch=master)
 My libft and GNL projects as a single lib
 
 # GNL
