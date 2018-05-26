@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 18:57:10 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/30 13:22:11 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/05/27 01:05:04 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static	size_t		p_flags(const char *fmt, t_parg *parg)
 	size_t	i;
 
 	i = 0;
+	ft_bzero(parg->flags, 6);
 	while (fmt[i] && ft_strchr(WIDTH_CHARS, fmt[i]))
 	{
 		if (i < 5)
