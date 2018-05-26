@@ -6,14 +6,14 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/05/26 22:27:37 by xperrin          ###   ########.fr        #
+#    Updated: 2018/05/26 22:55:29 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SONAME = $(NAME:.a=.so)
 DNAME = $(NAME)
-CFLAGS = -Wall -Wextra -Werror -pedantic
+CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long
 INCDIR = includes
 PRINTFINC = printf.h printf_structs.h printf_conv.h
 INCFILES = libft.h get_next_line.h $(PRINTFINC)
