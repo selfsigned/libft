@@ -1,8 +1,9 @@
 language: c
-compiler: clang
-before_install:
-        - pip install --user cpp-coveralls
+compiler:
+        - clang
+        - gcc
+os:
+        - linux
+        - osx
 script:
         - make test
-after_success:
-        - coveralls --exclude moulitest --gcov-options '\-lp'

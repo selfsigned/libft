@@ -1,4 +1,4 @@
-# Libft/GNL/Printf [![Build Status](https://travis-ci.org/selfsigned/libft.svg?branch=master)](https://travis-ci.org/selfsigned/libft) [![Coverage Status](https://coveralls.io/repos/github/selfsigned/libft/badge.svg?branch=master)](https://coveralls.io/github/selfsigned/libft?branch=master)
+# Libft/GNL/Printf [![Build Status](https://travis-ci.org/selfsigned/libft.svg?branch=master)](https://travis-ci.org/selfsigned/libft)
 My libft and GNL projects as a single lib
 
 # GNL
@@ -24,6 +24,7 @@ Functions from the __libc__:
 - ft_islower
 - ft_isupper
 - ft_strndup
+- ft_rand (kind of)
 
 Homebrewn functions:
 

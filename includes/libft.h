@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/12 19:48:50 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/05/26 22:09:43 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,9 @@ void				ft_strdeltab(char **tab, size_t tab_len);
 int					ft_cntdigit(int n);
 int					ft_pow(int x, int y);
 int					ft_sqrt(int x);
+/*
+** My rand function
+*/
+int					ft_rand(size_t bits);
 
 #endif
