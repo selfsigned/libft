@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/05/26 22:09:43 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/05/27 05:15:13 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,15 @@ char				*ft_strupcase(char *s);
 char				*ft_strlowcase(char *s);
 char				*ft_itoa_base(intmax_t n, char *base);
 char				*ft_utoa_base(uintmax_t n, char *base);
+/*
+** My memory functions
+*/
+void				ft_swap(void *a, void *b, size_t size);
+/*
+** My memory functions
+*/
+void				ft_bubblesort(void *base, size_t nemmb, size_t size,
+								int (*cmp)(const void *, const void *));
 /*
 ** My leak-free functions
 */

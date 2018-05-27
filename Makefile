@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/05/26 22:55:29 by xperrin          ###   ########.fr        #
+#    Updated: 2018/05/27 06:33:01 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCDIR = src
 # Source Files
 MEMDIR = $(SRCDIR)/memory
 FT_MEM = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
-	 ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c
+	 ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c \
+	 ft_swap.c
 
 STRDIR = $(SRCDIR)/string
 FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
@@ -50,6 +51,9 @@ LSTDIR = $(SRCDIR)/list
 FT_LST = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 	 ft_lstiter.c ft_lstmap.c
 
+SORTDIR = $(SRCDIR)/sort
+FT_SORT = ft_bubblesort.c
+
 LEAKDIR = $(SRCDIR)/leak
 FT_LEAK = ft_strsubfree.c ft_strjoinfreea.c ft_strjoinfreeb.c ft_strdeltab.c
 
@@ -72,10 +76,10 @@ PRINTF = $(PRINTF_FUN) $(PRINTF_PARSE) $(PRINTF_CONV)
 
 OBJDIR = obj
 VPATH = $(MEMDIR):$(STRDIR):$(PREDICATEDIR):$(DISPDIR):$(LSTDIR):\
-	$(LEAKDIR):$(RANDDIR):$(MATHDIR):\
+	$(SORTDIR):$(LEAKDIR):$(RANDDIR):$(MATHDIR):\
 	$(GNLDIR):$(PRINTFDIR)
 SRC = $(FT_MEM) $(FT_STR) $(FT_PREDICATE) $(FT_DISP) $(FT_LST)\
-      $(FT_LEAK) $(FT_RAND) $(FT_MATH)\
+      $(FT_SORT) $(FT_LEAK) $(FT_RAND) $(FT_MATH)\
       $(GNL) $(PRINTF)
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
