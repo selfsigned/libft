@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/05/27 06:33:01 by xperrin          ###   ########.fr        #
+#    Updated: 2018/05/28 02:40:04 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ AIGHT=\033[1;33m
 WARN=\033[1;31m
 NOCOLOR=\033[0m
 
-.PHONY: all so clean fclean re test moulitest_libft
+.PHONY: all so clean fclean re test moulitest_libft libft-test
 
 all: $(NAME)
 
@@ -116,8 +116,9 @@ $(OBJDIR)/%.o: %.c $(INCFULL) | $(OBJDIR)
 # Tests
 MOULITEST_REPO = https://github.com/yyang42/moulitest
 MOULITEST_TRACE = moulitrace.txt
+LIBFT-TEST_TRACE = libft-test.txt
 
-test: moulitest_libft
+test: moulitest_libft libft-test
 
 moulitest_libft: $(NAME)
 	if [ ! -d moulitest ]; then \
@@ -131,6 +132,11 @@ moulitest_libft: $(NAME)
 	else \
 		printf "$(GOOD)[MOULITEST]$(NOCOLOR)All tests passed\n"; \
 	fi
+
+libft-test: $(NAME)
+	@$(MAKE) --no-print-directory -C libft-test > $(LIBFT-TEST_TRACE)
+	@libft-test/libft-test > $(LIBFT-TEST_TRACE)
+	@printf "$(GOOD)[LIBFT-TEST]$(NOCOLOR)All tests passed\n"; \
 
 # Cleanup
 clean:

@@ -1,0 +1,3 @@
+[submodule "libft-test"]
+	path = libft-test
+	url = https://github.com/selfsigned/libft-test

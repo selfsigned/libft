@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/05/27 05:15:13 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/05/28 02:57:07 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 
 # include "get_next_line.h"
 # include "printf.h"
+
+#define M_GREEN "\033[1;32m"
+#define M_YELLOW "\033[1;33m"
+#define M_RED "\033[1;31m"
+#define M_END "\033[0m"
 
 /*
 ** part 1
