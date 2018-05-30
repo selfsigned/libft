@@ -1,5 +1,6 @@
-# Libft/GNL/Printf [![Build Status](https://travis-ci.org/selfsigned/libft.svg?branch=master)](https://travis-ci.org/selfsigned/libft)
-My libft and GNL projects as a single lib
+# Libft/GNL/Printf [![Build and Test Status](https://travis-ci.org/selfsigned/libft.svg?branch=master)](https://travis-ci.org/selfsigned/libft)
+A subset of the libc comprised of my libft GNL and printf projects, with a few extras.
+Compatible with GNU/Linux and MacOS with clang and hopefully GCC.
 
 # GNL
 | NAME          | get\_next\_line - read from a fd line per line                                                                                                                                              |
