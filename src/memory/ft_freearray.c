@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdeltab.c                                     :+:      :+:    :+:   */
+/*   ft_freearray.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 15:22:08 by xperrin           #+#    #+#             */
-/*   Updated: 2018/06/10 02:32:57 by xperrin          ###   ########.fr       */
+/*   Created: 2018/06/09 23:14:43 by xperrin           #+#    #+#             */
+/*   Updated: 2018/06/10 02:29:52 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 #include <stdlib.h>
 
-/*
-**  ___  ___ ___ ___ ___ ___   _ _____ ___ ___
-** |   \| __| _ \ _ \ __/ __| /_\_   _| __|   \
-** | |) | _||  _/   / _| (__ / _ \| | | _|| |) |
-** |___/|___|_| |_|_\___\___/_/ \_\_| |___|___/
-**
-** Use ft_freearray instead
-*/
-
-void	ft_strdeltab(char **tab, size_t tab_len)
+void	ft_freearray(void **array, size_t nmemb)
 {
-	size_t i;
+	size_t	i;
 
 	i = -1;
-	while (++i < tab_len)
-		if (tab[i])
-			ft_strdel(&tab[i]);
-	free(tab);
-	tab = NULL;
+	while (++i < nmemb)
+		free(array[i]);
+	free(array);
+	array = NULL;
 }

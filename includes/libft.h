@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/05/28 02:57:07 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/06/10 02:49:54 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void				ft_bubblesort(void *base, size_t nemmb, size_t size,
 char				*ft_strjoinfreea(char *s1, char *s2);
 char				*ft_strjoinfreeb(char *s1, char *s2);
 char				*ft_strsubfree(char *s, unsigned int start, size_t len);
+void				ft_freearray(void **array, size_t nmemb);
 void				ft_strdeltab(char **tab, size_t tab_len);
 /*
 ** My math functions
