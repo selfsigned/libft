@@ -59,6 +59,11 @@ Homebrewn functions:
 | DESCRIPTION  | The __ft\_strupcase()__ function converts lowercase characters in the string __s__ to uppercase.|
 | RETURN VALUE | The string converted to uppercase.                                                              |
 
+-ft_freearray
+-ft_strdeltab (deprecated)
+-ft_swap
+-ft_bubblesort
+
 ## Part 1 Functions (libc functions)
 - ft_memset
 - ft_bzero
