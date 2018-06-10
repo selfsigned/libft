@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/06/10 02:48:50 by xperrin          ###   ########.fr        #
+#    Updated: 2018/06/10 03:32:14 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ MEMDIR = $(SRCDIR)/memory
 FT_MEM = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	 ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c \
 	 ft_strsubfree.c ft_strjoinfreea.c ft_strjoinfreeb.c \
-	 ft_freearray.c ft_strdeltab.c \
+	 ft_freearray.c \
 	 ft_swap.c \
 
 STRDIR = $(SRCDIR)/string
@@ -34,7 +34,7 @@ FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
 	ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c \
 	ft_strupcase.c ft_strlowcase.c ft_toupper.c ft_tolower.c \
-	ft_strnew.c ft_strdel.c ft_strclr.c \
+	ft_strnew.c ft_strdel.c ft_strclr.c ft_strdeltab.c \
 	ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 	ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
 	ft_strtrim.c ft_strsplit.c \
