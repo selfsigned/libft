@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 18:57:10 by xperrin           #+#    #+#             */
-/*   Updated: 2018/05/27 01:05:04 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/07/02 08:11:49 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ static	size_t		p_flags(const char *fmt, t_parg *parg)
 	parg->flags[5] = '\0';
 	return (i);
 }
-
-/*
-** Parsers
-*/
 
 static	size_t		p_length(const char *fmt, t_parg *parg)
 {
@@ -54,14 +50,34 @@ static	size_t		p_length(const char *fmt, t_parg *parg)
 	return (0);
 }
 
+static	size_t		p_width_prec(char o, const char *fmt, t_parg *parg,
+						va_list ap)
+{
+	size_t	i;
+	int		r;
+
+	i = 0;
+	r = -1;
+	if (fmt[i] == '*')
+		r = va_arg(ap, int);
+	else
+	{
+		while (ft_isdigit(fmt[i]))
+			i++;
+	}
+	if (o == 'w')
+		parg->width = (r >= 0) ? r : ft_atoi(fmt);
+	else
+		parg->prec = (r >= 0) ? r : ft_atoi(fmt);
+	return ((fmt[0] == '*') ? 1 : i);
+}
+
 /*
 ** Printf string syntax:
 **  %[flags][width][.precision][length]type
-**
-**  TBD: - error handling in precision
 */
 
-t_parg				printf_readarg(size_t i, const char *fmt)
+t_parg				printf_readarg(size_t i, const char *fmt, va_list ap)
 {
 	t_parg	parg;
 
@@ -69,18 +85,11 @@ t_parg				printf_readarg(size_t i, const char *fmt)
 	parg.convlen = i;
 	i += p_flags(fmt + i, &parg);
 	parg.width = 0;
-	if (ft_isdigit(fmt[i]))
-	{
-		parg.width = ft_atoi(fmt + i);
-		i += ft_cntdigit(parg.width);
-	}
+	if (ft_isdigit(fmt[i]) || fmt[i] == '*')
+		i += p_width_prec('w', fmt + i, &parg, ap);
 	parg.prec = -1;
 	if (fmt[i] == '.')
-	{
-		parg.prec = ft_atoi(fmt + i++ + 1);
-		while (ft_isdigit(fmt[i]))
-			i++;
-	}
+		i += p_width_prec('p', fmt + i + 1, &parg, ap) + 1;
 	i += p_length(fmt + i, &parg);
 	if (ft_isalnum(fmt[i]) || fmt[i] == '%')
 		parg.type = fmt[i++];

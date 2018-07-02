@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 18:41:49 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/20 20:12:23 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/07/02 07:17:36 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				ft_vdprintf(int fd, const char *format, va_list ap)
 		if (format[i] == '%')
 		{
 			i++;
-			parg = printf_readarg(i, format);
+			parg = printf_readarg(i, format, ap);
 			if (!parg.error)
 				res += printf_printarg(fd, parg, ap);
 			i = parg.convlen;

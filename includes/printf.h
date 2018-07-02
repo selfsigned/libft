@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 17:57:28 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/27 22:04:31 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/07/02 06:53:59 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,7 @@ int				ft_dprintf(int fd, const char *format, ...);
 int				ft_vprintf(const char *format, va_list ap);
 int				ft_vdprintf(int fd, const char *format, va_list ap);
 
-/*
-** Parsing helpers
-*/
-
-t_parg			printf_readarg(size_t i, const char *fmt);
+t_parg			printf_readarg(size_t i, const char *format, va_list ap);
 size_t			printf_printarg(int fd, t_parg parg, va_list ap);
 
 #endif
