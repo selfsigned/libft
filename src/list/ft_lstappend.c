@@ -6,13 +6,22 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 16:13:55 by xperrin           #+#    #+#             */
-/*   Updated: 2018/08/08 19:52:14 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/09/08 00:01:59 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstappend(t_list **src, t_list *new)
+/*
+**    _______  __________ __
+**   / __/ _ \/ __/ __/ // /
+**  / _// , _/ _/_\ \/ _  /
+** /_/ /_/|_/___/___/_//_/
+**
+** Append the link element new at the end of the linked list src.
+*/
+
+void	ft_lstappend(t_list **src, t_list *new)
 {
 	t_list *node;
 

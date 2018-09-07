@@ -63,6 +63,7 @@ Homebrewn functions:
 -ft_strdeltab (deprecated)
 -ft_swap
 -ft_bubblesort
+-ft_lstnewl
 
 ## Part 1 Functions (libc functions)
 - ft_memset

@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/08/08 19:52:30 by xperrin          ###   ########.fr        #
+#    Updated: 2018/09/07 23:46:17 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,10 @@ FT_DISP = ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
 LSTDIR = $(SRCDIR)/list
-FT_LST = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
+FT_LST = ft_lstnew.c ft_lstnewl.c \
+	 ft_lstdelone.c ft_lstdel.c \
 	 ft_lstiter.c ft_lstmap.c \
-	 ft_lstappend.c
+	 ft_lstadd.c ft_lstappend.c
 
 SORTDIR = $(SRCDIR)/sort
 FT_SORT = ft_bubblesort.c

@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/08/08 19:50:11 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/09/07 23:48:44 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 #define M_END "\033[0m"
 
 # define CLR_SCR "\033[1;1H\033[2J"
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
 /*
 ** part 1
@@ -87,12 +94,6 @@ void				ft_putnbr_fd(int n, int fd);
 /*
 ** bonus part
 */
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -100,6 +101,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstappend(t_list **alst, t_list *new);
+t_list				*ft_lstnewl(void *ptr);
 /*
 ** My string functions
 */
@@ -117,7 +119,7 @@ char				*ft_utoa_base(uintmax_t n, char *base);
 */
 void				ft_swap(void *a, void *b, size_t size);
 /*
-** My memory functions
+** My swap functions
 */
 void				ft_bubblesort(void *base, size_t nemmb, size_t size,
 								int (*cmp)(const void *, const void *));

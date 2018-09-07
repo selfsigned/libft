@@ -1,48 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnewl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 11:17:13 by xperrin           #+#    #+#             */
-/*   Updated: 2018/09/08 00:06:44 by xperrin          ###   ########.fr       */
+/*   Created: 2018/09/07 23:27:15 by xperrin           #+#    #+#             */
+/*   Updated: 2018/09/08 00:06:03 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 /*
+**    _______  __________ __
+**   / __/ _ \/ __/ __/ // /
+**  / _// , _/ _/_\ \/ _  /
+** /_/ /_/|_/___/___/_//_/
+**
 ** Allocates (with malloc(3)) and returns a “fresh” link. The
 ** variables content and content_size of the new link are ini-
-** tialized by copy of the parameters of the function. If the pa-
-** rameter content is nul, the variable content is initialized to
-** NULL and the variable content_size is initialized to 0 even
-** if the parameter content_size isn’t. The variable next is
-** initialized to NULL. If the allocation fails, the function returns
-** NULL.
+** tialized with the pointer's address.
+** If the pointer is nul the variable content_size is ini-
+** tialized to 0.
+** The variable next is initialized to NULL.
+** If the allocation fails, the function returns NULL.
 */
-t_list	*ft_lstnew(void const *content, size_t content_size)
+
+t_list	*ft_lstnewl(void *ptr)
 {
 	t_list	*new;
 
-	if (!(new = (t_list*)ft_memalloc(sizeof(t_list))))
+	if (!(new = (t_list*)ft_memalloc(sizeof(void*))))
 		return (NULL);
-	if (!content)
+	if (!ptr)
 	{
 		new->content = NULL;
 		new->content_size = 0;
 	}
 	else
 	{
-		if (!(new->content = ft_memalloc(content_size)))
-		{
-			free(new);
-			return (NULL);
-		}
-		ft_memcpy(new->content, content, content_size);
-		new->content_size = content_size;
+		new->content = ptr;
+		new->content_size = sizeof(void*);
 	}
 	new->next = NULL;
 	return (new);
