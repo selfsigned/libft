@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 23:27:15 by xperrin           #+#    #+#             */
-/*   Updated: 2018/09/08 00:06:03 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/09/11 01:19:08 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@
 ** If the allocation fails, the function returns NULL.
 */
 
-t_list	*ft_lstnewl(void *ptr)
+t_list	*ft_lstnewl(void **ptr)
 {
 	t_list	*new;
 
-	if (!(new = (t_list*)ft_memalloc(sizeof(void*))))
+	if (!(new = (t_list*)ft_memalloc(sizeof(t_list))))
 		return (NULL);
-	if (!ptr)
+	if (!*ptr)
 	{
 		new->content = NULL;
 		new->content_size = 0;
 	}
 	else
 	{
-		new->content = ptr;
+		new->content = *ptr;
 		new->content_size = sizeof(void*);
 	}
 	new->next = NULL;
