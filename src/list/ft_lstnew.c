@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 11:17:13 by xperrin           #+#    #+#             */
-/*   Updated: 2018/09/08 00:06:44 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:21:12 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 ** initialized to NULL. If the allocation fails, the function returns
 ** NULL.
 */
+
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*new;

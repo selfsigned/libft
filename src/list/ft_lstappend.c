@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 16:13:55 by xperrin           #+#    #+#             */
-/*   Updated: 2018/09/08 00:01:59 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:20:38 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_lstappend(t_list **src, t_list *new)
 		if (node->next)
 			node = node->next;
 		else
-			break;
+			break ;
 	}
 	node->next = new;
 }

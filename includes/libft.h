@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/09/11 01:19:15 by xperrin          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:23:51 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 # include "get_next_line.h"
 
-#define M_GREEN "\033[1;32m"
-#define M_YELLOW "\033[1;33m"
-#define M_RED "\033[1;31m"
-#define M_END "\033[0m"
+# define M_GREEN "\033[1;32m"
+# define M_YELLOW "\033[1;33m"
+# define M_RED "\033[1;31m"
+# define M_END "\033[0m"
 
 # define CLR_SCR "\033[1;1H\033[2J"
 
