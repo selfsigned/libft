@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2018/09/07 23:46:17 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/22 19:34:13 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
 	ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 	ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
 	ft_strtrim.c ft_strsplit.c \
-	ft_atoi.c ft_itoa.c ft_itoa_base.c ft_utoa_base.c \
+	ft_atoi.c ft_itoa.c ft_itoa_b.c ft_utoa_b.c \
+	ft_itoa_bs.c ft_utoa_bs.c \
 	ft_cntword.c ft_strrlen.c ft_strndup.c
 
 PREDICATEDIR = $(SRCDIR)/predicate

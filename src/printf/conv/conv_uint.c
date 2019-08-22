@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/31 16:34:13 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/22 19:41:51 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,13 @@ size_t		conv_uint(int fd, t_parg parg, va_list ap)
 				&& (parg.type == 'o' || parg.type == 'O')))
 		str = ft_strdup("\0");
 	else if (parg.type == 'x' || parg.type == 'X')
-		str = (parg.type == 'x') ? ft_utoa_base(n, B_HEX_L)
-			: ft_utoa_base(n, B_HEX_U);
+		str = (parg.type == 'x') ? ft_utoa_b(n, B_HEX_L)
+			: ft_utoa_b(n, B_HEX_U);
 	else if (parg.type == 'o' || parg.type == 'O')
 		str = (ft_strchr(parg.flags, '#') && n) ? ft_strjoinfreeb("0",
-			ft_utoa_base(n, B_OCT)) : ft_utoa_base(n, B_OCT);
+			ft_utoa_b(n, B_OCT)) : ft_utoa_b(n, B_OCT);
 	else
-		str = ft_utoa_base(n, B_DEC);
+		str = ft_utoa_b(n, B_DEC);
 	if (!ft_strchr(parg.flags, '-'))
 		n = uint_l_print(fd, str, parg);
 	else

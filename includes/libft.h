@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2018/09/11 18:23:51 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/22 19:33:39 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,10 @@ size_t				ft_strrlen(char const *s, char c);
 char				*ft_strndup(char const *s, size_t n);
 char				*ft_strupcase(char *s);
 char				*ft_strlowcase(char *s);
-char				*ft_itoa_base(intmax_t n, char *base);
-char				*ft_utoa_base(uintmax_t n, char *base);
+char				*ft_itoa_b(intmax_t n, char *base);
+char				*ft_utoa_b(uintmax_t n, char *base);
+int					ft_itoa_bs(char *buf, intmax_t n, char *base);
+int					ft_utoa_bs(char *buf, uintmax_t n, char *base);
 /*
 ** My memory functions
 */

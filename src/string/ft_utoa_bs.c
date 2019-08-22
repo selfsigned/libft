@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa_bs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 14:30:29 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/22 19:34:41 by xperrin          ###   ########.fr       */
+/*   Created: 2019/08/22 19:36:59 by xperrin           #+#    #+#             */
+/*   Updated: 2019/08/22 19:40:44 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+
+int		ft_utoa_bs(char *buf, uintmax_t n, char *base)
 {
-	return (ft_itoa_b(n, "0123456789"));
+	(void)buf;
+	(void)n;
+	(void)base;
+	return 0;
 }
