@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_b.c                                        :+:      :+:    :+:   */
+/*   ft_cntdigit_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/23 22:17:39 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/26 19:57:42 by xperrin          ###   ########.fr       */
+/*   Created: 2019/08/22 19:39:49 by xperrin           #+#    #+#             */
+/*   Updated: 2019/08/24 16:16:44 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_b(intmax_t n, char *base)
+int		ft_cntdigt_b(intmax_t n, size_t radix)
 {
-	char	buf[66];
+	size_t	r;
 
-	ft_itoa_bs(buf, n, base);
-	return (ft_strdup(buf));
+	r = 1;
+	while (n >= (int)radix)
+	{
+		n /= radix;
+		r++;
+	}
+	return (r);
 }

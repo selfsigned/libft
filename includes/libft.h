@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/22 19:33:39 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/24 16:26:18 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ char				*ft_strupcase(char *s);
 char				*ft_strlowcase(char *s);
 char				*ft_itoa_b(intmax_t n, char *base);
 char				*ft_utoa_b(uintmax_t n, char *base);
-int					ft_itoa_bs(char *buf, intmax_t n, char *base);
-int					ft_utoa_bs(char *buf, uintmax_t n, char *base);
+void				ft_itoa_bs(char *buf, intmax_t n, char *base);
+void				ft_utoa_bs(char *buf, uintmax_t n, char *base);
 /*
 ** My memory functions
 */
@@ -137,6 +137,7 @@ void				ft_strdeltab(char **tab, size_t tab_len);
 ** My math functions
 */
 int					ft_cntdigit(int n);
+int					ft_cntdigt_b(intmax_t n, size_t radix);
 int					ft_pow(int x, int y);
 int					ft_sqrt(int x);
 /*

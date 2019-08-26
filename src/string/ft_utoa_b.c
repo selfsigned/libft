@@ -1,44 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_utoa_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/02 22:33:42 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/22 19:35:58 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/26 19:57:58 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_cntdigt_b(uintmax_t n, size_t radix)
+char		*ft_utoa_b(uintmax_t n, char *base)
 {
-	size_t	r;
+	char	buf[66];
 
-	r = 1;
-	while (n >= radix)
-	{
-		n /= radix;
-		r++;
-	}
-	return (r);
-}
-
-char			*ft_utoa_b(uintmax_t n, char *base)
-{
-	char			*str;
-	size_t			radix;
-	int				nlen;
-
-	radix = ft_strlen(base);
-	nlen = ft_cntdigt_b(n, radix);
-	if (!(str = ft_strnew(nlen)))
-		return (NULL);
-	while (nlen--)
-	{
-		str[nlen] = base[n % radix];
-		n /= radix;
-	}
-	return (str);
+	ft_utoa_bs(buf, n, base);
+	return (ft_strdup(buf));
 }

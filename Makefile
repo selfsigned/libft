@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/22 19:34:13 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/26 20:17:07 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ RANDDIR = $(SRCDIR)/rand
 FT_RAND = ft_rand.c
 
 MATHDIR = $(SRCDIR)/math
-FT_MATH = ft_cntdigit.c ft_pow.c ft_sqrt.c
+FT_MATH = ft_cntdigit.c ft_cntdigit_b.c ft_pow.c ft_sqrt.c
 
 GNLDIR = $(SRCDIR)/gnl
 GNL = get_next_line.c
