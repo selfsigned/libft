@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/26 20:17:07 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/27 17:55:04 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ AIGHT=\033[1;33m
 WARN=\033[1;31m
 NOCOLOR=\033[0m
 
-.PHONY: all so clean fclean re test moulitest_libft libft-test
+.PHONY: all so clean fclean re test moulitest_libft libft-test utils
 
 all: $(NAME)
 
@@ -114,6 +114,18 @@ $(OBJDIR):
 $(OBJDIR)/%.o: %.c $(INCFULL) | $(OBJDIR)
 	@printf "$(GOOD)[$(DNAME)]$(AIGHT)[$(dir $<)]$(NOCOLOR)$(notdir $(@:.o=))\n"
 	@$(CC) $(CFLAGS) -c -o $@ $< $(INC)
+
+# Utils
+UTILS = test_printf
+UTILSDIR = utils
+UTILS_SRC = $(addprefix $(UTILSDIR)/, $(UTILS))
+UTILS_SRC := $(addsuffix .c, $(UTILS_SRC))
+
+utils: $(UTILS) | $(SONAME)
+
+$(UTILS):$(UTILS_SRC) | $(SONAME)
+	@printf "$(GOOD)[UTILS]$(NOCOLOR)$(notdir $(@:.o=))\n"
+	@$(CC) $< -o $@ $(SONAME) $(INC)
 
 # Tests
 MOULITEST_REPO = https://github.com/yyang42/moulitest
@@ -146,9 +158,13 @@ clean:
 	@printf "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Object directory removed\n"
 
 fclean: clean
-	@$(RM) $(NAME) $(SONAME)
+	@$(RM) $(NAME) $(SONAME) $(UTILS)
 	@printf "$(GOOD)[LIBFT]$(WARN)[CLEAN]$(NOCOLOR)Archive removed\n"
 
 re:
 	@$(MAKE) --no-print-directory fclean
 	@$(MAKE) --no-print-directory all
+
+
+utils:
+

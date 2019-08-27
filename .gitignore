@@ -1,10 +1,13 @@
 *.o
 *.out
-*.a 
-*.so 
+*.a
+*.so
 main.c
 
 # unit test stuff
 moulitest
 moulitrace.txt
 libft-test.txt
+
+# utils
+test_printf

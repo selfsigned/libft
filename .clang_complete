@@ -1,0 +1,5 @@
+-Iinclude
+-Iincludes
+-Ilibft
+-Ilibft/includes
+-I..libft/includes
