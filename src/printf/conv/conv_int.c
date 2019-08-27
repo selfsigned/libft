@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/22 19:41:20 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/27 19:50:29 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static	size_t		l_print(int fd, char prepend, char *str, t_parg parg)
 		i++;
 	}
 	ft_putstr_fd(str, fd);
-	free(str);
 	return ((prepend) ? i + 1 : i);
 }
 
@@ -81,7 +80,6 @@ static	size_t		r_print(int fd, char prepend, char *str, t_parg parg)
 		ft_putchar_fd(' ', fd);
 		i++;
 	}
-	free(str);
 	return ((prepend) ? i + 1 : i);
 }
 
@@ -96,19 +94,19 @@ size_t				conv_int(int fd, t_parg parg, va_list ap)
 {
 	intmax_t	n;
 	char		prepend;
-	char		*str;
+	char		str[ITOA_B_BUF];
 
 	prepend = '\0';
 	prepend = ft_strchr(parg.flags, ' ') ? ' ' : prepend;
 	prepend = ft_strchr(parg.flags, '+') ? '+' : prepend;
 	n = conv_t_int(parg, ap);
 	if (parg.type == 'b')
-		str = (!n && !parg.prec) ? ft_strdup("\0") : ft_itoa_b(n, B_BIN);
+		(!n && !parg.prec) ? (void)(str[0] = '\0') : ft_itoa_bs(str, n, B_BIN);
 	else
-		str = (!n && !parg.prec) ? ft_strdup("\0") : ft_itoa_b(n, B_DEC);
+		(!n && !parg.prec) ? (void)(str[0] = '\0') : ft_itoa_bs(str, n, B_DEC);
 	if (n < 0)
 	{
-		str = ft_strsubfree(str, 1, ft_strlen(str));
+		ft_memmove(str, str + 1, sizeof(str));
 		prepend = '-';
 	}
 	if (parg.prec == -1 && ft_strchr(parg.flags, '0')

@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:30:29 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/26 19:54:51 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/27 18:46:41 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char			*ft_itoa(int n)
 {
-	char	buf[22];
+	char	buf[ITOA_BUF];
 
 	ft_itoa_bs(buf, n, "0123456789");
 	return (ft_strdup(buf));

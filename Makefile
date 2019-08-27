@@ -6,14 +6,14 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/27 17:55:04 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/27 21:14:34 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SONAME = $(NAME:.a=.so)
 DNAME = $(NAME)
-CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long
+CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long -g
 INCDIR = includes
 PRINTFINC = printf.h printf_structs.h printf_conv.h
 INCFILES = libft.h get_next_line.h $(PRINTFINC)
@@ -31,7 +31,8 @@ FT_MEM = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 
 STRDIR = $(SRCDIR)/string
 FT_STR = ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
-	ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
+	ft_strcat.c ft_strncat.c ft_strlcat.c ft_strprecat.c \
+	ft_strchr.c ft_strrchr.c \
 	ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c \
 	ft_strupcase.c ft_strlowcase.c ft_toupper.c ft_tolower.c \
 	ft_strnew.c ft_strdel.c ft_strclr.c ft_strdeltab.c \

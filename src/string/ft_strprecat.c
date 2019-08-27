@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_b.c                                        :+:      :+:    :+:   */
+/*   ft_strprecat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/23 22:17:39 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/27 18:46:13 by xperrin          ###   ########.fr       */
+/*   Created: 2019/08/27 20:59:30 by xperrin           #+#    #+#             */
+/*   Updated: 2019/08/27 21:30:48 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_b(intmax_t n, char *base)
+char	*ft_strprecat(char *dst, const char *src)
 {
-	char	buf[ITOA_B_BUF];
-
-	ft_itoa_bs(buf, n, base);
-	return (ft_strdup(buf));
+	(void)dst, (void)src;
 }

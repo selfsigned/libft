@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/22 19:42:02 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/27 20:35:09 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ static	size_t		r_print(int fd, char *str, t_parg parg)
 
 static	size_t		null_hexa_prec(int fd, uintmax_t n, t_parg parg)
 {
-	char	*str;
+	char	str[2];
 
-	str = (parg.prec || (parg.prec <= 0 && ft_strchr(parg.flags, '0')))
-		? ft_strdup("0") : ft_strdup("\0");
+	(parg.prec || (parg.prec <= 0 && ft_strchr(parg.flags, '0')))
+		? ft_strcpy(str, "0") : ft_strcpy(str, "\0");
 	if (!ft_strchr(parg.flags, '-'))
 		n = uint_l_print(fd, str, parg);
 	else
@@ -109,28 +109,27 @@ static	size_t		null_hexa_prec(int fd, uintmax_t n, t_parg parg)
 size_t				conv_ptr(int fd, t_parg parg, va_list ap)
 {
 	uintmax_t	n;
-	char		*str;
+	char		str[ITOA_BUF];
 
 	n = conv_t_uint(parg, ap);
-	if (parg.prec == -1 && ft_strchr(parg.flags, '0')
+	if (parg.prec == -1
+			&& ft_strchr(parg.flags, '0')
 			&& !ft_strchr(parg.flags, '-'))
 	{
-		parg.prec = ((parg.type == 'x' || parg.type == 'X') && !n) ? parg.width
-			: parg.width - 2;
+		parg.prec = ((parg.type == 'x' || parg.type == 'X') && !n)
+			? parg.width : parg.width - 2;
 		parg.width = 0;
 	}
 	if ((parg.type == 'x' || parg.type == 'X') && !n)
 		return (null_hexa_prec(fd, n, parg));
 	if (!n && !parg.prec)
-		str = ft_strdup("\0");
+		str[0] = '\0';
 	else if (parg.type == 'X')
-		str = ft_utoa_b(n, B_HEX_U);
+		ft_utoa_bs(str, n, B_HEX_U);
 	else
-		str = ft_utoa_b(n, B_HEX_L);
+		ft_utoa_bs(str, n, B_HEX_L);
 	if (!ft_strchr(parg.flags, '-'))
-		n = l_print(fd, str, parg);
+		return (l_print(fd, str, parg));
 	else
-		n = r_print(fd, str, parg);
-	free(str);
-	return (n);
+		return (r_print(fd, str, parg));
 }

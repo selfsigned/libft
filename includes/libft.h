@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 20:10:52 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/24 16:26:18 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/27 20:59:05 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define M_END "\033[0m"
 
 # define CLR_SCR "\033[1;1H\033[2J"
+
+# define ITOA_BUF 22
+# define ITOA_B_BUF 66
 
 typedef struct		s_list
 {
@@ -105,6 +108,7 @@ t_list				*ft_lstnewl(void **ptr);
 /*
 ** My string functions
 */
+char				*ft_strprecat(char *dst, const char *src);
 int					ft_islower(int chr);
 int					ft_isupper(int chr);
 int					ft_cntword(char const *s, char c);
