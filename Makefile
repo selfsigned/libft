@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/27 21:14:34 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/27 22:55:41 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,7 @@ utils: $(UTILS) | $(SONAME)
 
 $(UTILS):$(UTILS_SRC) | $(SONAME)
 	@printf "$(GOOD)[UTILS]$(NOCOLOR)$(notdir $(@:.o=))\n"
-	@$(CC) $< -o $@ $(SONAME) $(INC)
+	@$(CC) $(CFLAGS) $< -o $@ $(SONAME) $(INC)
 
 # Tests
 MOULITEST_REPO = https://github.com/yyang42/moulitest
@@ -165,7 +165,3 @@ fclean: clean
 re:
 	@$(MAKE) --no-print-directory fclean
 	@$(MAKE) --no-print-directory all
-
-
-utils:
-

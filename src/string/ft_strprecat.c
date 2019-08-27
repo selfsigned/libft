@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 20:59:30 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/27 21:30:48 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/27 23:08:31 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 char	*ft_strprecat(char *dst, const char *src)
 {
-	(void)dst, (void)src;
+	size_t l;
+
+	ft_memmove(dst + (l = ft_strlen(src)), dst, ft_strlen(dst) + 1);
+	return (ft_memcpy(dst, src, sizeof(char) * l));
 }
