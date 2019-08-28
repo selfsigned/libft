@@ -6,12 +6,13 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/27 21:30:57 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:33:46 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
 #include <stdlib.h>
+#include "libft.h"
+#include "printf_internal.h"
 
 /*
 ** d = argument ; f = flag ; w = width ; p = precision

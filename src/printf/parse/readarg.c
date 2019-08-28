@@ -6,11 +6,13 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 18:57:10 by xperrin           #+#    #+#             */
-/*   Updated: 2018/07/02 08:11:49 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:28:41 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "printf.h"
+#include "printf_internal.h"
 
 static	size_t		p_flags(const char *fmt, t_parg *parg)
 {

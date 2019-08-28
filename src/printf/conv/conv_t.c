@@ -6,11 +6,12 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 18:49:57 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/09 23:13:32 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:43:52 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
+#include "printf_internal.h"
 
 intmax_t	conv_t_int(t_parg parg, va_list ap)
 {

@@ -6,11 +6,13 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 17:23:40 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/28 20:24:56 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:29:04 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "printf.h"
+#include "printf_internal.h"
 
 size_t	printf_printarg(int fd, t_parg parg, va_list ap)
 {

@@ -6,11 +6,12 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 18:41:49 by xperrin           #+#    #+#             */
-/*   Updated: 2018/07/02 07:17:36 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:26:33 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include "printf_internal.h"
 #include <unistd.h>
 
 int				ft_vdprintf(int fd, const char *format, va_list ap)

@@ -6,12 +6,13 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 19:54:58 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/31 21:44:05 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:32:37 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
 #include <unistd.h>
+#include "libft.h"
+#include "printf_internal.h"
 
 static size_t	wstrlen(wchar_t *s)
 {

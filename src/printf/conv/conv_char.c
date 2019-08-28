@@ -6,12 +6,13 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:42:25 by xperrin           #+#    #+#             */
-/*   Updated: 2018/03/28 21:18:13 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:31:00 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
 #include <unistd.h>
+#include "libft.h"
+#include "printf_internal.h"
 
 static	size_t	conv_uchar(int fd, t_parg parg, va_list ap)
 {

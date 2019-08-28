@@ -6,7 +6,7 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/27 22:55:41 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/28 12:56:13 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SONAME = $(NAME:.a=.so)
 DNAME = $(NAME)
 CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long -g
 INCDIR = includes
-PRINTFINC = printf.h printf_structs.h printf_conv.h
+PRINTFINC = printf.h printf_internal.h
 INCFILES = libft.h get_next_line.h $(PRINTFINC)
 INCFULL = $(addprefix $(INCDIR)/, $(INCFILES))
 INC = $(addprefix -I, $(INCDIR))
@@ -49,13 +49,13 @@ FT_PREDICATE = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 
 DISPDIR = $(SRCDIR)/display
 FT_DISP = ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
-	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
 LSTDIR = $(SRCDIR)/list
 FT_LST = ft_lstnew.c ft_lstnewl.c \
-	 ft_lstdelone.c ft_lstdel.c \
-	 ft_lstiter.c ft_lstmap.c \
-	 ft_lstadd.c ft_lstappend.c
+	ft_lstdelone.c ft_lstdel.c \
+	ft_lstiter.c ft_lstmap.c \
+	ft_lstadd.c ft_lstappend.c
 
 SORTDIR = $(SRCDIR)/sort
 FT_SORT = ft_bubblesort.c
@@ -70,12 +70,13 @@ GNLDIR = $(SRCDIR)/gnl
 GNL = get_next_line.c
 
 PRINTFP = $(SRCDIR)/printf
-PRINTFDIR = $(PRINTFP)/function:$(PRINTFP)/parse $(PRINTFP)/conv
+PRINTFDIR = $(PRINTFP)/function:$(PRINTFP)/parse $(PRINTFP)/conv $(PRINTFP)/utils
 PRINTF_FUN = ft_printf.c ft_dprintf.c ft_vprintf.c ft_vdprintf.c
-PRINTF_PARSE = readarg.c printarg.c
-PRINTF_CONV = conv_t.c conv_char.c conv_string.c \
-	      conv_int.c conv_uint.c conv_ptr.c conv_unicode.c
-PRINTF = $(PRINTF_FUN) $(PRINTF_PARSE) $(PRINTF_CONV)
+PRINTF_PARSE = readarg.c printarg.c \
+	conv_int.c conv_uint.c conv_ptr.c conv_unicode.c \
+	conv_t.c conv_char.c conv_string.c
+# PRINTF_UTILS = buffer.c
+PRINTF = $(PRINTF_FUN) $(PRINTF_PARSE) $(PRINTF_CONV) $(PRINTF_CONV)
 
 OBJDIR = obj
 VPATH = $(MEMDIR):$(STRDIR):$(PREDICATEDIR):$(DISPDIR):$(LSTDIR):\
