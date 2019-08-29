@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 18:41:49 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 18:35:24 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:52:16 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int				ft_vdprintf(int fd, const char *format, va_list ap)
 	int		res;
 	t_parg	parg;
 
-	(void)ap;
 	res = 0;
 	i = 0;
 	while (format[i])

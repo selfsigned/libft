@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/29 14:54:08 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:51:10 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ size_t		conv_uint(int fd, t_parg parg, va_list ap)
 	else if (parg.type == 'o' || parg.type == 'O')
 	{
 		ft_utoa_bs(str, n, B_OCT);
-		(ft_strchr(parg.flags, '#') && n) ? ft_strprecat(str,"0") : (char*)0;
+		(ft_strchr(parg.flags, '#') && n) ? ft_strprecat(str, "0") : (char*)0;
 	}
 	else
 		ft_utoa_bs(str, n, B_DEC);
