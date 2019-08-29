@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 01:56:57 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 12:23:13 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/29 16:02:44 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,19 @@ typedef struct	s_parg
 }				t_parg;
 
 /*
+** Buffer
+*/
+
+# define PRINTF_BUF_SIZE 128
+
+typedef struct	s_buf
+{
+	int			fd;
+	size_t		size;
+	char		buf[PRINTF_BUF_SIZE];
+}				t_buf;
+
+/*
 ** Types
 */
 intmax_t		conv_t_int(t_parg parg, va_list ap);
@@ -81,5 +94,11 @@ size_t			conv_uint(int fd, t_parg parg, va_list ap);
 size_t			uint_l_print(int fd, char *str, t_parg parg);
 size_t			uint_r_print(int fd, char *str, t_parg parg);
 t_parg			zeroflag_handler(t_parg parg, char prepend);
+
+/*
+** Bufferize
+*/
+void			buff_write(int fd, const void *buf, size_t count);
+void			buff_putchar(char c, int fd);
 
 #endif

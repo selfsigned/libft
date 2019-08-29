@@ -6,14 +6,14 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/28 12:56:13 by xperrin          ###   ########.fr        #
+#    Updated: 2019/08/29 15:31:08 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SONAME = $(NAME:.a=.so)
 DNAME = $(NAME)
-CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long -g
+CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long -g -O2
 INCDIR = includes
 PRINTFINC = printf.h printf_internal.h
 INCFILES = libft.h get_next_line.h $(PRINTFINC)
@@ -75,8 +75,8 @@ PRINTF_FUN = ft_printf.c ft_dprintf.c ft_vprintf.c ft_vdprintf.c
 PRINTF_PARSE = readarg.c printarg.c \
 	conv_int.c conv_uint.c conv_ptr.c conv_unicode.c \
 	conv_t.c conv_char.c conv_string.c
-# PRINTF_UTILS = buffer.c
-PRINTF = $(PRINTF_FUN) $(PRINTF_PARSE) $(PRINTF_CONV) $(PRINTF_CONV)
+PRINTF_UTILS = buffer.c
+PRINTF = $(PRINTF_FUN) $(PRINTF_PARSE) $(PRINTF_CONV) $(PRINTF_UTILS)
 
 OBJDIR = obj
 VPATH = $(MEMDIR):$(STRDIR):$(PREDICATEDIR):$(DISPDIR):$(LSTDIR):\
@@ -93,7 +93,7 @@ AIGHT=\033[1;33m
 WARN=\033[1;31m
 NOCOLOR=\033[0m
 
-.PHONY: all so clean fclean re test moulitest_libft libft-test utils
+.PHONY: all so clean fclean re reso test moulitest_libft libft-test utils
 
 all: $(NAME)
 
@@ -166,3 +166,7 @@ fclean: clean
 re:
 	@$(MAKE) --no-print-directory fclean
 	@$(MAKE) --no-print-directory all
+
+reso:
+	@$(MAKE) --no-print-directory fclean
+	@$(MAKE) --no-print-directory so

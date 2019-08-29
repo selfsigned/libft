@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 12:31:16 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:07:36 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ static	size_t		l_print(int fd, char prepend, char *str, t_parg parg)
 	size = (prepend) ? size + 1 : size;
 	while (parg.width-- - size > 0)
 	{
-		ft_putchar_fd(' ', fd);
+		buff_putchar(' ', fd);
 		i++;
 	}
-	(prepend) ? ft_putchar_fd(prepend, fd) : (void)42;
+	(prepend) ? buff_putchar(prepend, fd) : (void)42;
 	size = (prepend) ? size - 1 : size;
 	while (size-- - w > 0)
 	{
-		ft_putchar_fd('0', fd);
+		buff_putchar('0', fd);
 		i++;
 	}
-	ft_putstr_fd(str, fd);
+	buff_write(fd, str, w);
 	return ((prepend) ? i + 1 : i);
 }
 
@@ -67,18 +67,18 @@ static	size_t		r_print(int fd, char prepend, char *str, t_parg parg)
 	i = w;
 	size = (parg.prec > (int)w) ? parg.prec : (int)w;
 	size = (prepend) ? size + 1 : size;
-	(prepend) ? ft_putchar_fd(prepend, fd) : (void)42;
+	(prepend) ? buff_putchar(prepend, fd) : (void)42;
 	tmp = size;
 	w += (prepend) ? 1 : 0;
 	while (size-- - w > 0)
 	{
-		ft_putchar_fd('0', fd);
+		buff_putchar('0', fd);
 		i++;
 	}
-	ft_putstr_fd(str, fd);
+	buff_write(fd, str, w);
 	while (parg.width-- - tmp > 0)
 	{
-		ft_putchar_fd(' ', fd);
+		buff_putchar(' ', fd);
 		i++;
 	}
 	return ((prepend) ? i + 1 : i);

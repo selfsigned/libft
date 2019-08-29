@@ -6,13 +6,31 @@
 #include "printf.h"
 #include "libft.h"
 
-// String
-/* # define PRINTF_ARG_TYPE char *a, char *b; */
-/* # define PRINTF_ARG input_fmt, av[2] */
+// Choose your type here
+# define INT
 
-// Unsigned long
+#ifdef STRING
+# define PRINTF_ARG_TYPE char *a, char *b
+# define PRINTF_ARG input_fmt, av[2]
+#endif
+
+# ifdef LONG
 # define PRINTF_ARG_TYPE char *a, ulong b
 # define PRINTF_ARG input_fmt, strtoul(av[2], NULL, 10)
+# endif
+
+# ifdef INT
+# define PRINTF_ARG_TYPE char *a, int long b
+# define PRINTF_ARG input_fmt, atoll(av[2])
+#endif
+
+#ifdef UNICODE
+# include <wchar.h>
+# include <locale.h>
+
+# define PRINTF_ARG_TYPE char *a, wchar_t *b
+# define PRINTF_ARG input_fmt, L"🤔 Thinking Face 🅱️ B Button (Blood Type) 👍 Thumbs Up 🔥 Fire 🤣 Rolling On The Floor Laughing 🏁 Flags 🙄 Face With Rolling Eyes 👑 Crown 🤤 Drooling Face ♀️ Female Sign 🤷‍♂️ Man Shrugging 🤷‍♀️ Woman Shrugging 🤭 Face With Hand Over Mouth 🤦‍♀️ Woman"
+#endif
 
 void	bench_printf(
 		int (*print_func)(const char *restrict, ...),
@@ -41,6 +59,10 @@ int main(int ac, char **av) {
 
 	strncpy(input_fmt, av[1], 128);
 	strncat(input_fmt, "\n", 128 - 1 );
+
+# ifdef UNICODE
+	setlocale(LC_ALL, "");
+# endif
 
 	ft_putendl("### First pass ###");
 	bench_printf(&printf,    "system printf", PRINTF_ARG);

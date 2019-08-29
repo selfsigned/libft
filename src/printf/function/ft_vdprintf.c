@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 18:41:49 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 12:26:33 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 18:35:24 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ int				ft_vdprintf(int fd, const char *format, va_list ap)
 		}
 		else
 		{
-			write(fd, format + i, 1);
+			buff_write(fd, format + i, 1);
 			i++;
 			res += 1;
 		}
 	}
+	buff_write(-42, NULL, 0);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 12:32:41 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:15:02 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ static	size_t		l_print(int fd, char *str, t_parg parg)
 	size = (parg.prec > (int)w) ? parg.prec : (int)w;
 	while (parg.width-- - (size + 2) > 0)
 	{
-		ft_putchar_fd(' ', fd);
+		buff_putchar(' ', fd);
 		i++;
 	}
-	(parg.type == 'X') ? ft_putstr_fd("0X", fd) : ft_putstr_fd("0x", fd);
+	(parg.type == 'X') ? buff_write(fd, "0X", w) : buff_write(fd, "0x", w);
 	i += 2;
 	while (size-- - w > 0)
 	{
-		ft_putchar_fd('0', fd);
+		buff_putchar('0', fd);
 		i++;
 	}
-	ft_putstr_fd(str, fd);
+	buff_write(fd, str, w);
 	return (i);
 }
 
@@ -62,20 +62,20 @@ static	size_t		r_print(int fd, char *str, t_parg parg)
 	int		tmp;
 	size_t	w;
 
-	(parg.type == 'X') ? ft_putstr_fd("0x", fd) : ft_putstr_fd("0x", fd);
 	w = ft_strlen(str);
+	(parg.type == 'X') ? buff_write(fd, "0X", w) : buff_write(fd, "0x", w);
 	i = (parg.prec > (int)w + 2) ? w : w + 2;
 	size = (parg.prec > (int)w) ? parg.prec : (int)w;
 	tmp = size + 2;
 	while (size-- - w > 0)
 	{
-		ft_putchar_fd('0', fd);
+		buff_putchar('0', fd);
 		i++;
 	}
-	ft_putstr_fd(str, fd);
+	buff_write(fd, str, w);
 	while (parg.width-- - tmp > 0)
 	{
-		ft_putchar_fd(' ', fd);
+		buff_putchar(' ', fd);
 		i++;
 	}
 	return (i);

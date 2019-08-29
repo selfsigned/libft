@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 19:54:58 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 12:32:37 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/08/28 19:08:02 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ static size_t	putwstrn(wchar_t *s, size_t n, int fd)
 	i = 0;
 	if (!s)
 	{
-		write(fd, "(null)", n);
+		buff_write(fd, "(null)", n);
 		return (n);
 	}
 	while (*s && i < n)
 	{
 		clen = conv_unicode(c, *s++);
 		if (i + clen <= n)
-			write(fd, c, clen);
+			buff_write(fd, c, clen);
 		else
 			break ;
 		i += clen;
@@ -85,7 +85,7 @@ static size_t	conv_ustring(int fd, t_parg parg, va_list ap)
 	while (parg.width - parg.prec > 0 - (int)c)
 	{
 		parg.width--;
-		ft_putchar_fd((z_flag) ? '0' : ' ', fd);
+		buff_putchar((z_flag) ? '0' : ' ', fd);
 		i++;
 	}
 	if (!ft_strchr(parg.flags, '-'))
@@ -108,14 +108,14 @@ size_t			conv_string(int fd, t_parg parg, va_list ap)
 		? (int)ft_strlen(s) : parg.prec;
 	z_flag = (ft_strchr(parg.flags, '0')) ? 1 : 0;
 	if (ft_strchr(parg.flags, '-'))
-		write(fd, s, parg.prec);
+		buff_write(fd, s, parg.prec);
 	while (parg.width - parg.prec > 0)
 	{
 		parg.width--;
-		ft_putchar_fd((z_flag) ? '0' : ' ', fd);
+		buff_putchar((z_flag) ? '0' : ' ', fd);
 		i++;
 	}
 	if (!ft_strchr(parg.flags, '-'))
-		write(fd, s, parg.prec);
+		buff_write(fd, s, parg.prec);
 	return (i + parg.prec);
 }
