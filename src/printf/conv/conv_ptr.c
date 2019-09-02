@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:38:35 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/29 15:15:02 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/09/02 17:08:09 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static	size_t		l_print(int fd, char *str, t_parg parg)
 		buff_putchar(' ', fd);
 		i++;
 	}
-	(parg.type == 'X') ? buff_write(fd, "0X", w) : buff_write(fd, "0x", w);
+	(parg.type == 'X') ? buff_write(fd, "0X", 2) : buff_write(fd, "0x", 2);
 	i += 2;
 	while (size-- - w > 0)
 	{
@@ -63,7 +63,7 @@ static	size_t		r_print(int fd, char *str, t_parg parg)
 	size_t	w;
 
 	w = ft_strlen(str);
-	(parg.type == 'X') ? buff_write(fd, "0X", w) : buff_write(fd, "0x", w);
+	(parg.type == 'X') ? buff_write(fd, "0X", 2) : buff_write(fd, "0x", 2);
 	i = (parg.prec > (int)w + 2) ? w : w + 2;
 	size = (parg.prec > (int)w) ? parg.prec : (int)w;
 	tmp = size + 2;

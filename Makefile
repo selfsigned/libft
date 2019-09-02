@@ -6,14 +6,14 @@
 #    By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/04 19:33:10 by xperrin           #+#    #+#              #
-#    Updated: 2019/08/29 15:31:08 by xperrin          ###   ########.fr        #
+#    Updated: 2019/09/02 17:44:26 by xperrin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SONAME = $(NAME:.a=.so)
 DNAME = $(NAME)
-CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-long-long -g -O2
+CFLAGS ?= -Wall -Wextra -Werror -pedantic -Wno-long-long -O2 # Release flags
 INCDIR = includes
 PRINTFINC = printf.h printf_internal.h
 INCFILES = libft.h get_next_line.h $(PRINTFINC)
@@ -93,7 +93,7 @@ AIGHT=\033[1;33m
 WARN=\033[1;31m
 NOCOLOR=\033[0m
 
-.PHONY: all so clean fclean re reso test moulitest_libft libft-test utils
+.PHONY: all so debug clean fclean re reso test moulitest_libft libft-test utils
 
 all: $(NAME)
 
@@ -109,6 +109,8 @@ $(SONAME): $(OBJ)
 	@printf "$(GOOD)[$(DNAME)]Shared object updated.$(NOCOLOR)\n"
 
 so: $(SONAME)
+
+debug: CFLAGS = -Wall -Wextra -pedantic -Wno-long-long -g -O0
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)

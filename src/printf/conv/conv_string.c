@@ -6,7 +6,7 @@
 /*   By: xperrin <xperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 19:54:58 by xperrin           #+#    #+#             */
-/*   Updated: 2019/08/28 19:08:02 by xperrin          ###   ########.fr       */
+/*   Updated: 2019/09/02 17:37:20 by xperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static size_t	putwstrn(wchar_t *s, size_t n, int fd)
 	i = 0;
 	if (!s)
 	{
-		buff_write(fd, "(null)", n);
+		buff_write(fd, "(null)", 6);
 		return (n);
 	}
 	while (*s && i < n)
