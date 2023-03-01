@@ -97,6 +97,7 @@ NOCOLOR=\033[0m
 
 all: $(NAME)
 
+$(NAME): CFLAGS += -fPIE
 $(NAME): $(OBJ)
 	@$(AR) rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
